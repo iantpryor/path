@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link media="screen" href="css/style.css" rel="stylesheet" type="text/css" />
+    
+    <script type="text/javascript" src="js/script.js"></script>
+    
+    <title>Dugeon Map Maker</title>
+  </head>
+  <body>
+    <div>
+      Direction 1: <input name=updown type=radio value=up>Up
+      <input name=updown type=radio value=down>Down
+      <input name=updown type=radio value=none checked>None</br>
+      Direction 2: <input name=leftright type=radio value=left>Left
+      <input name=leftright type=radio value=right>Right
+      <input name=leftright type=radio value=none checked>None</br>
+      
+      Levels: <select id="levelcount">
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+      </select>
+      
+      <button id="paintbtn">Paint</button>
+      
+    </div>
+    <div>
+      <canvas id="mapcanvas" width = 960 height = 540></canvas>
+    </div>
+    <footer>
+    </footer>
+  </body>
+</html>
