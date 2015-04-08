@@ -1,0 +1,18 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+body {
+  background-color: #FFFFFF;
+  position: relative;
+}
+canvas {
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  border: 1px solid #000000;
+}
+div {
+}
