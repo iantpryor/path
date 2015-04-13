@@ -33,7 +33,8 @@
            //alert(pathWidth + ", " + pathHeight);
            for(var i = 0; i< pathWidth; i++){
                for(var j = 0; j< pathHeight; j++){
-                   //c.lineWidth = 1;
+                   c.beginPath();
+                   c.lineWidth = 1;
                    c.rect(i*30, j*30, 30, 30);
                    c.stroke();
                }
@@ -45,8 +46,9 @@
                     var randRoom = Math.floor((Math.random() * 49));
                     if(randRoom < 1){
                         roomDim = createRoom(i,j,pathWidth,pathHeight);
+                        c.beginPath();
                         c.lineWidth = 3;
-                        c.strokeRect(i*30, j*30, roomDim[0]*30, roomDim[1]*30);
+                        c.rect(i*30, j*30, roomDim[0]*30, roomDim[1]*30);
                         c.stroke();
                     }
                 }
