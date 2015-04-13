@@ -4,18 +4,31 @@
         //get the canvas
         var canvas = document.getElementById("mapcanvas");
         var c = canvas.getContext("2d");
-        var width = 960;
-        var height = 540;
-    }
-    
-    document.getElementById("paintbtn").onclick = paint;
-    
-    function paint(){
-        var widthSelect = document.getElementById("width");
-        width = widthSelect.options[widthSelect.selectedIndex].value;
+        var cwidth = 960;
+        var cheight = 540;
+        document.getElementById("paintbtn").onclick = paint;
         
-        var heightSelect = document.getElementById("height");
-        height = heightSelect.options[heightSelect.selectedIndex].value;
-        
+        function reset(){
+            c.clearRect ( 0 , 0 , canvas.width, canvas.height );
+            c.beginPath();
+        }
+    
+        function paint(){
+            reset();
+            
+            var widthSelect = document.getElementById("width");
+            var pathWidth = widthSelect.options[widthSelect.selectedIndex].value;
+            
+            var heightSelect = document.getElementById("height");
+            var pathHeight = heightSelect.options[heightSelect.selectedIndex].value;
+            
+            for(var i = 0; i< pathWidth; i++){
+                for(var j = 0; i< pathHeight; j++){
+                    c.lineWidth = 1;
+                    c.rect(i*30, j*30, 30, 30);
+                    c.stroke();
+                }
+            }
+        }
     }
 })(window, document, undefined);
