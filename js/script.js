@@ -22,6 +22,8 @@
             var heightSelect = document.getElementById("height");
             var pathHeight = heightSelect.options[heightSelect.selectedIndex].value;
             
+            alert(pathWidth + ", " + pathHeight);
+            
             for(var i = 0; i< pathWidth; i++){
                 for(var j = 0; i< pathHeight; j++){
                     c.lineWidth = 1;
