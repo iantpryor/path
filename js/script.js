@@ -16,6 +16,7 @@
         function createRoom(x, y, pw, ph){
             var randw = Math.floor((Math.random() * pw/2 + 2) );
             var randh = Math.floor((Math.random() * ph/2 + 2) );
+            alert(randw + ", " + randh);
             
             return [randw, randh];
         }
@@ -33,7 +34,7 @@
             
             for(var i = 0; i< pathWidth; i++){
                 for(var j = 0; j< pathHeight; j++){
-                    var randRoom = Math.floor((Math.random() * 9));
+                    var randRoom = Math.floor((Math.random() * 19));
                     if(randRoom < 1){
                         roomDim = createRoom(i,j,pathWidth,pathHeight);
                         c.lineWidth = 3;
