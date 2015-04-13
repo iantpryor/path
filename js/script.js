@@ -31,6 +31,14 @@
             var pathHeight = heightSelect.options[heightSelect.selectedIndex].value;
             
            //alert(pathWidth + ", " + pathHeight);
+           for(var i = 0; i< pathWidth; i++){
+               for(var j = 0; j< pathHeight; j++){
+                   c.lineWidth = 1;
+                   c.rect(i*30, j*30, 30, 30);
+                   c.stroke();
+               }
+           }
+           
             
             for(var i = 0; i< pathWidth/2; i++){
                 for(var j = 0; j< pathHeight/2; j++){
@@ -41,10 +49,6 @@
                         c.strokeRect(i*30, j*30, roomDim[0]*30, roomDim[1]*30);
                         c.stroke();
                     }
-                    
-                    //c.lineWidth = 1;
-                    //c.rect(i*30, j*30, 30, 30);
-                    //c.stroke();
                 }
             }
         }
