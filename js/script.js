@@ -34,7 +34,7 @@
             
             for(var i = 0; i< pathWidth; i++){
                 for(var j = 0; j< pathHeight; j++){
-                    var randRoom = Math.floor((Math.random() * 19));
+                    var randRoom = Math.floor((Math.random() * 49));
                     if(randRoom < 1){
                         roomDim = createRoom(i,j,pathWidth,pathHeight);
                         c.lineWidth = 3;
