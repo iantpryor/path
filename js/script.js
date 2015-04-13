@@ -29,14 +29,21 @@
             
             var heightSelect = document.getElementById("height");
             var pathHeight = heightSelect.options[heightSelect.selectedIndex].value;
-            
-           //alert(pathWidth + ", " + pathHeight);
-           for(var i = 0; i< pathWidth; i++){
-               for(var j = 0; j< pathHeight; j++){
-                   c.beginPath();
-                   c.lineWidth = 1;
-                   c.rect(i*30+0.5, j*30+0.5, 30, 30);
-                   c.stroke();
+            var nodeMap = [];
+            //alert(pathWidth + ", " + pathHeight);
+            for(var i = 0; i< pathWidth; i++){
+                for(var j = 0; j< pathHeight; j++){
+                    var node = {
+                        n:1, 
+                        s:1, 
+                        e:1,
+                        w:1
+                    };
+                    nodeMap.push(node);
+                    c.beginPath();
+                    c.lineWidth = 1;
+                    c.rect(i*30+0.5, j*30+0.5, 30, 30);
+                    c.stroke();
                }
            }
            
