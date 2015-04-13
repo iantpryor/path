@@ -25,7 +25,7 @@
             alert(pathWidth + ", " + pathHeight);
             
             for(var i = 0; i< pathWidth; i++){
-                for(var j = 0; i< pathHeight; j++){
+                for(var j = 0; j< pathHeight; j++){
                     c.lineWidth = 1;
                     c.rect(i*30, j*30, 30, 30);
                     c.stroke();
