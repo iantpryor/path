@@ -42,9 +42,9 @@
                         c.stroke();
                     }
                     
-                    c.lineWidth = 1;
-                    c.rect(i*30, j*30, 30, 30);
-                    c.stroke();
+                    //c.lineWidth = 1;
+                    //c.rect(i*30, j*30, 30, 30);
+                    //c.stroke();
                 }
             }
         }
