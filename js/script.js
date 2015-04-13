@@ -41,8 +41,8 @@
            }
            
             
-            for(var i = 0; i< Math.ceil(pathWidth/2); i++){
-                for(var j = 0; j< Math.ceil(pathHeight/2); j++){
+            for(var i = 0; i< Math.floor(pathWidth/2)+1; i++){
+                for(var j = 0; j< Math.floor(pathHeight/2)+1; j++){
                     var randRoom = Math.floor((Math.random() * 19));
                     if(randRoom < 1){
                         roomDim = createRoom(i,j,pathWidth,pathHeight);
