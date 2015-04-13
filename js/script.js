@@ -32,8 +32,8 @@
             
            //alert(pathWidth + ", " + pathHeight);
             
-            for(var i = 0; i< pathWidth; i++){
-                for(var j = 0; j< pathHeight; j++){
+            for(var i = 0; i< pathWidth/2; i++){
+                for(var j = 0; j< pathHeight/2; j++){
                     var randRoom = Math.floor((Math.random() * 49));
                     if(randRoom < 1){
                         roomDim = createRoom(i,j,pathWidth,pathHeight);
