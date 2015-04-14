@@ -92,17 +92,10 @@
             
             var heightSelect = document.getElementById("height");
             var pathHeight = heightSelect.options[heightSelect.selectedIndex].value;
-            var nodeMap = [];
             //alert(pathWidth + ", " + pathHeight);
             for(var i = 0; i< pathWidth; i++){
                 for(var j = 0; j< pathHeight; j++){
-                    var node = {
-                        n:1, 
-                        s:1, 
-                        e:1,
-                        w:1
-                    };
-                    nodeMap.push(node);
+                    
                     c.beginPath();
                     //c.lineWidth = 1;
                     c.fillStyle = "#000000";
@@ -110,8 +103,16 @@
                     c.stroke();
                }
            }
-           
-            
+           var startpoint = {
+               x: 0,
+               y: 0
+           }
+           var endpoint = {
+               x: 5,
+               y: 5
+           }
+           var walkArray = walk(startpoint, endpoint);
+            /*
             for(var i = 0; i< Math.floor(pathWidth/2)+1; i++){
                 for(var j = 0; j< Math.floor(pathHeight/2)+1; j++){
                     var randRoom = Math.floor((Math.random() * 9));
@@ -124,7 +125,7 @@
                         c.stroke();
                     }
                 }
-            }
+            }*/
         }
     }
 })(window, document, undefined);
