@@ -112,6 +112,17 @@
                y: 5
            }
            var walkArray = walk(startpoint, endpoint);
+           c.fillStyle = "#33CC33";
+           c.fillRect(startpoint.x*30 + 0.5, startpoint.y*30 + 0.5, 30, 30);
+           
+           for (var i = 0; i< walkArray.length; i++){
+               startpoint.x = startpoint.x + walkArray[i][0];
+               startpoint.y = startpoint.y + walkArray[i][1];
+               c.fillStyle = "#FFFFFF";
+               c.fillRect(startpoint.x*30 + 0.5, startpoint.y*30 + 0.5, 30, 30);
+           }
+           c.fillStyle = "#CC0000";
+           c.fillRect(endpoint.x*30 +0.5, endpoint.y*30 +0.5, 30 ,30);
             /*
             for(var i = 0; i< Math.floor(pathWidth/2)+1; i++){
                 for(var j = 0; j< Math.floor(pathHeight/2)+1; j++){
