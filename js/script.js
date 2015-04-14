@@ -121,6 +121,31 @@
            for (var i = 0; i< walkArray.length; i++){
                movingpoint.x = movingpoint.x + walkArray[i][0];
                movingpoint.y = movingpoint.y + walkArray[i][1];
+               var index = walkArray.indexOf([movingpoint.x * -1, movingpoint.y * -1]);
+               if(movingpoint.x > pathWidth){
+                   movingpoint.x = movingpoint.x - 1;
+                   if (index > -1) {
+                       array.splice(index, 1);
+                   }
+               }
+               if(movingpoint.x < 0){
+                   movingpoint.x = movingpoint.x + 1;
+                   if (index > -1) {
+                       array.splice(index, 1);
+                   }
+               }
+               if(movingpoint.y > pathHeight){
+                   movingpoint.y = movingpoint.y - 1;
+                   if (index > -1) {
+                       array.splice(index, 1);
+                   }
+               } 
+               if( movingpoint.y < 0){
+                   movingpoint.y = movingpoint.y + 1;
+                   if (index > -1) {
+                       array.splice(index, 1);
+                   }
+               }
                c.fillStyle = "#FFFFFF";
                c.fillRect(movingpoint.x*30 + 0.5, movingpoint.y*30 + 0.5, 30, 30);
            }
