@@ -7,8 +7,8 @@
         var cwidth = 960;
         var cheight = 540;
         var moves = {
-            u: [0,1],
-            d: [0,-1],
+            u: [0,-1],
+            d: [0,1],
             l: [-1,0],
             r: [1,0]
         };
