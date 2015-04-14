@@ -42,6 +42,7 @@
                     nodeMap.push(node);
                     c.beginPath();
                     //c.lineWidth = 1;
+                    c.fillStyle = "#000000";
                     c.fillRect(i*30+0.5, j*30+0.5, 30, 30);
                     c.stroke();
                }
@@ -55,7 +56,7 @@
                         roomDim = createRoom(i,j,pathWidth,pathHeight);
                         c.beginPath();
                         c.lineWidth = 3;
-                        c.fillStyle = "#FFFFFF"
+                        c.fillStyle = "#FFFFFF";
                         c.fillRect(i*30 + 0.5, j*30+ 0.5, roomDim[0]*30, roomDim[1]*30);
                         c.stroke();
                     }
