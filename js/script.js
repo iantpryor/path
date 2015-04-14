@@ -121,7 +121,7 @@
            for (var i = 0; i< walkArray.length; i++){
                movingpoint.x = movingpoint.x + walkArray[i][0];
                movingpoint.y = movingpoint.y + walkArray[i][1];
-               var index = walkArray.indexOf([movingpoint.x * -1, movingpoint.y * -1]);
+               var index = walkArray.indexOf([walkArray[i][0] * -1, walkArray[i][1] * -1]);
                if(movingpoint.x > pathWidth){
                    movingpoint.x = movingpoint.x - 1;
                    if (index > -1) {
