@@ -6,11 +6,74 @@
         var c = canvas.getContext("2d");
         var cwidth = 960;
         var cheight = 540;
+        var moves = {
+            u: [0,1],
+            d: [0,-1],
+            l: [-1,0],
+            r: [1,0]
+        };
         document.getElementById("paintbtn").onclick = paint;
+        
+        function shuffle(array) {
+          var currentIndex = array.length, temporaryValue, randomIndex ;
+        
+          // While there remain elements to shuffle...
+          while (0 !== currentIndex) {
+        
+            // Pick a remaining element...
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+        
+            // And swap it with the current element.
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+          }
+        
+          return array;
+        }
         
         function reset(){
             c.clearRect ( 0 , 0 , canvas.width, canvas.height );
             c.beginPath();
+        }
+        
+        function walk(start, stop){
+            var distX = stop.x - start.x;
+            var distY = stop.y - start.y;
+            
+            
+            
+            var walkSteps = [];
+            for(var i = 0; i< Math.abs(distX); i++){
+                if(distX < 0){
+                    walkSteps.push(moves.l);
+                } else {
+                    walkSteps.push(moves.r);
+                }
+            }
+            for(var i = 0; i< Math.abs(distY); i++){
+                if(distY < 0){
+                    walkSteps.push(moves.u);
+                } else {
+                    walkSteps.push(moves.d);
+                }
+            }
+            
+            var randSteps = (Math.abs(distX) + Math.abs(distY));
+            
+            for(var i = 0; i< randSteps; i++){
+                var rand =Math.floor(Math.random() * (2 - 1 + 1)) + 1;
+                if(rand < 1){
+                    walkSteps.push(moves.u);
+                    walkSteps.push(moves.d);
+                } else{
+                    walkSteps.push(moves.l);
+                    walkSteps.push(moves.r);
+                }
+            }
+            
+            return shuffle(walkSteps);
         }
         
         function createRoom(x, y, pw, ph){
