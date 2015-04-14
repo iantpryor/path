@@ -122,7 +122,7 @@
                movingpoint.x = startpoint.x + walkArray[i][0];
                movingpoint.y = startpoint.y + walkArray[i][1];
                c.fillStyle = "#FFFFFF";
-               c.fillRect(startpoint.x*30 + 0.5, startpoint.y*30 + 0.5, 30, 30);
+               c.fillRect(movingpoint.x*30 + 0.5, movingpoint.y*30 + 0.5, 30, 30);
            }
            c.fillStyle = "#33CC33";
            c.fillRect(startpoint.x*30 + 0.5, startpoint.y*30 + 0.5, 30, 30);
