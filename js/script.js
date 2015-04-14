@@ -124,11 +124,8 @@
                c.fillStyle = "#FFFFFF";
                c.fillRect(movingpoint.x*30 + 0.5, movingpoint.y*30 + 0.5, 30, 30);
            }
-           c.fillStyle = "#33CC33";
-           c.fillRect(startpoint.x*30 + 0.5, startpoint.y*30 + 0.5, 30, 30);
-           c.fillStyle = "#CC0000";
-           c.fillRect(endpoint.x*30 +0.5, endpoint.y*30 +0.5, 30 ,30);
-            /*
+           
+            
             for(var i = 0; i< Math.floor(pathWidth/2)+1; i++){
                 for(var j = 0; j< Math.floor(pathHeight/2)+1; j++){
                     var randRoom = Math.floor((Math.random() * 9));
@@ -141,7 +138,12 @@
                         c.stroke();
                     }
                 }
-            }*/
+            }
+            
+            c.fillStyle = "#33CC33";
+            c.fillRect(startpoint.x*30 + 0.5, startpoint.y*30 + 0.5, 30, 30);
+            c.fillStyle = "#CC0000";
+            c.fillRect(endpoint.x*30 +0.5, endpoint.y*30 +0.5, 30 ,30);
         }
     }
 })(window, document, undefined);
