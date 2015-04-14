@@ -126,7 +126,7 @@
                var oppMove = [];
                oppMove.push(oppcurrMoveX);
                oppMove.push(oppcurrMoveY);
-               var index = walkArray.indexOf(oppMove);
+               var index = walkArray.indexOf([-1, 0]);
                if(movingpoint.x > pathWidth){
                    movingpoint.x = movingpoint.x - 1;
                    if (index > -1) {
