@@ -105,11 +105,11 @@
            }
            var startpoint = {
                x: 0,
-               y: 0
+               y: 9
            }
            var endpoint = {
-               x: 5,
-               y: 5
+               x: 9,
+               y: 0
            }
            var walkArray = walk(startpoint, endpoint);
            c.fillStyle = "#33CC33";
