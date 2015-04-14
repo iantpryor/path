@@ -111,16 +111,21 @@
                x: 9,
                y: 0
            }
+           var movingpoint = {
+               x: -1,
+               y: -1
+           }
            var walkArray = walk(startpoint, endpoint);
-           c.fillStyle = "#33CC33";
-           c.fillRect(startpoint.x*30 + 0.5, startpoint.y*30 + 0.5, 30, 30);
+           
            
            for (var i = 0; i< walkArray.length; i++){
-               startpoint.x = startpoint.x + walkArray[i][0];
-               startpoint.y = startpoint.y + walkArray[i][1];
+               movingpoint.x = startpoint.x + walkArray[i][0];
+               movingpoint.y = startpoint.y + walkArray[i][1];
                c.fillStyle = "#FFFFFF";
                c.fillRect(startpoint.x*30 + 0.5, startpoint.y*30 + 0.5, 30, 30);
            }
+           c.fillStyle = "#33CC33";
+           c.fillRect(startpoint.x*30 + 0.5, startpoint.y*30 + 0.5, 30, 30);
            c.fillStyle = "#CC0000";
            c.fillRect(endpoint.x*30 +0.5, endpoint.y*30 +0.5, 30 ,30);
             /*
