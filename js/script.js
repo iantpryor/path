@@ -125,25 +125,25 @@
                if(movingpoint.x > pathWidth){
                    movingpoint.x = movingpoint.x - 1;
                    if (index > -1) {
-                       array.splice(index, 1);
+                       walkArray.splice(index, 1);
                    }
                }
                if(movingpoint.x < 0){
                    movingpoint.x = movingpoint.x + 1;
                    if (index > -1) {
-                       array.splice(index, 1);
+                       walkArray.splice(index, 1);
                    }
                }
                if(movingpoint.y > pathHeight){
                    movingpoint.y = movingpoint.y - 1;
                    if (index > -1) {
-                       array.splice(index, 1);
+                       walkArray.splice(index, 1);
                    }
                } 
                if( movingpoint.y < 0){
                    movingpoint.y = movingpoint.y + 1;
                    if (index > -1) {
-                       array.splice(index, 1);
+                       walkArray.splice(index, 1);
                    }
                }
                c.fillStyle = "#FFFFFF";
