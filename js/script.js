@@ -123,7 +123,10 @@
                movingpoint.y = movingpoint.y + walkArray[i][1];
                var oppcurrMoveX = -1 * walkArray[i][0];
                var oppcurrMoveY = -1 * walkArray[i][1];
-               var index = walkArray.indexOf([oppcurrMoveX, oppcurrMoveY]);
+               var oppMove = [];
+               oppMove.push(oppcurrMoveX);
+               oppMove.push(oppcurrMoveY);
+               var index = walkArray.indexOf(oppMove);
                if(movingpoint.x > pathWidth){
                    movingpoint.x = movingpoint.x - 1;
                    if (index > -1) {
