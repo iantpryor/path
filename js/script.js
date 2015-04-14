@@ -112,15 +112,15 @@
                y: 0
            }
            var movingpoint = {
-               x: -1,
-               y: -1
+               x: 0,
+               y: 9
            }
            var walkArray = walk(startpoint, endpoint);
            
            
            for (var i = 0; i< walkArray.length; i++){
-               movingpoint.x = startpoint.x + walkArray[i][0];
-               movingpoint.y = startpoint.y + walkArray[i][1];
+               movingpoint.x = movingpoint.x + walkArray[i][0];
+               movingpoint.y = movingpoint.y + walkArray[i][1];
                c.fillStyle = "#FFFFFF";
                c.fillRect(movingpoint.x*30 + 0.5, movingpoint.y*30 + 0.5, 30, 30);
            }
