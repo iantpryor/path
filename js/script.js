@@ -159,7 +159,7 @@
                    
                }
                c.fillStyle = "#FFFFFF";
-               c.fillRect(movingpoint.x*30 + 0.5, movingpoint.y*30 + 0.5, 30, 30);
+               c.fillRect(movingpoint.x*30 + 2.5, movingpoint.y*30 + 2.5, 28, 28);
            }
            
             
@@ -171,7 +171,7 @@
                         c.beginPath();
                         c.lineWidth = 3;
                         c.fillStyle = "#FFFFFF";
-                        c.fillRect(i*30 + 0.5, j*30+ 0.5, roomDim[0]*30, roomDim[1]*30);
+                        c.fillRect(i*30 + 2.5, j*30+ 2.5, roomDim[0]*28, roomDim[1]*28);
                         c.stroke();
                     }
                 }
