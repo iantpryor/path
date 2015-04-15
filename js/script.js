@@ -273,7 +273,7 @@
             c.fillRect(endpoint.x*30, endpoint.y*30, 24 ,24);
             
             var startnode = {
-                x:0
+                x:0,
                 y:0
             };
             startnode.x = startpoint.x*30 + 5;
