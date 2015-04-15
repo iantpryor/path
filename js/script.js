@@ -14,6 +14,14 @@
         };
         document.getElementById("paintbtn").onclick = paint;
         
+        function rgbToHex(R,G,B) {return toHex(R)+toHex(G)+toHex(B)}
+        function toHex(n) {
+            n = parseInt(n,10);
+            if (isNaN(n)) return "00";
+            n = Math.max(0,Math.min(n,255));
+            return "0123456789ABCDEF".charAt((n-n%16)/16) + "0123456789ABCDEF".charAt(n%16);
+        }
+        
         function floodfill(node, targetcolor, replacementcolor){
             if(targetcolor == replacementcolor){
                 return;
@@ -21,7 +29,7 @@
             if(node.color != targetcolor){
                 return;
             }
-            node.color = replacementcolor;
+            //node.color = replacementcolor;
             westnode = {
                 x:0,
                 y:0
@@ -260,6 +268,13 @@
             c.fillStyle = "#CC0000";
             c.fillRect(endpoint.x*30, endpoint.y*30, 24 ,24);
             
+            var startnode = {
+                x:0
+                y:0
+            };
+            startnode.x = startpoint.x*30 + 5;
+            startnode.y = startpoint.y*30 + 5;
+            floodfill(startnode,"#FFFFFF","#0099FF")
             var imgdata = c.getImageData(0,0,1,1).data;
         }
     }
