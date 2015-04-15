@@ -77,8 +77,8 @@
         }
         
         function createRoom(x, y, pw, ph){
-            var randw = Math.floor((Math.random() * ((pw/2) - 1 + 1) + 1) );
-            var randh = Math.floor((Math.random() * ((ph/2) - 1 + 1) + 1) );
+            var randw = Math.floor((Math.random() * (pw/3) + 1) );
+            var randh = Math.floor((Math.random() * (ph/3) + 1) );
             //alert(randw + ", " + randh);
             
             return [randw, randh];
