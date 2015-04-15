@@ -208,7 +208,7 @@
                         c.beginPath();
                         //c.lineWidth = 3;
                         c.fillStyle = "#FFFFFF";
-                        c.fillRect(i*30 , j*30, roomDim[0]*30 - roomDim[0]*6, roomDim[1]*30 - roomDim[1]*6);
+                        c.fillRect(i*30 , j*30, roomDim[0]*30 - 6, roomDim[1]*30 - 6);
                         c.stroke();
                     }
                 }
