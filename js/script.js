@@ -288,7 +288,7 @@
             };
             startnode.x = startpoint.x*30;
             startnode.y = startpoint.y*30;
-            floodfill(startnode,"#FFFFFF","#0099FF", pathWidth, pathHeight);
+            //floodfill(startnode,"#FFFFFF","#0099FF", pathWidth, pathHeight);
             var imgdata = c.getImageData(0,0,1,1).data;
             
             //paint the start and end points.
