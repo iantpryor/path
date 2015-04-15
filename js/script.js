@@ -41,31 +41,31 @@
             }
             
             c.fillStyle = replacementcolor;
-            c.fillRect(node.x, node.y, 6, 6);
+            c.fillRect(node.x, node.y, 8, 8);
             var westnode = {
                 x:0,
                 y:0
             };
-            westnode.x = node.x - 6;
+            westnode.x = node.x - 8;
             westnode.y = node.y;
             var eastnode = {
                 x:0,
                 y:0
             };
-            eastnode.x = node.x + 6;
+            eastnode.x = node.x + 8;
             eastnode.y = node.y
             var northnode = {
                 x:0,
                 y:0
             };
             northnode.x = node.x;
-            northnode.y = node.y - 6;
+            northnode.y = node.y - 8;
             var southnode = {
                 x:0,
                 y:0
             };
             southnode.x = node.x;
-            southnode.y = node.y + 6;
+            southnode.y = node.y + 8;
             floodfill(westnode, targetcolor, replacementcolor, pathWidth, pathHeight);
             floodfill(eastnode, targetcolor, replacementcolor, pathWidth, pathHeight);
             floodfill(northnode, targetcolor, replacementcolor, pathWidth, pathHeight);
