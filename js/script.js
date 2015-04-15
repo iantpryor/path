@@ -192,7 +192,7 @@
                }
                
                c.fillStyle = "#FFFFFF";
-               c.fillRect(movingpoint.x*30, movingpoint.y*30, 28, 28);
+               c.fillRect(movingpoint.x*30, movingpoint.y*30, 24, 24);
                
                
                movingpointold.x = movingpoint.x;
@@ -216,9 +216,9 @@
             
             //paint the start and end points.
             c.fillStyle = "#33CC33";
-            c.fillRect(startpoint.x*30, startpoint.y*30, 28, 28);
+            c.fillRect(startpoint.x*30, startpoint.y*30, 24, 24);
             c.fillStyle = "#CC0000";
-            c.fillRect(endpoint.x*30, endpoint.y*30, 28 ,28);
+            c.fillRect(endpoint.x*30, endpoint.y*30, 24 ,24);
         }
     }
 })(window, document, undefined);
