@@ -63,7 +63,7 @@
             var randSteps = 48;
             
             for(var i = 0; i< randSteps; i++){
-                var rand =Math.floor(Math.random() * (2 - 1 + 1)) + 1;
+                var rand = Math.floor(Math.random() * 2);
                 if(rand < 1){
                     walkSteps.push(moves.u);
                     walkSteps.push(moves.d);
