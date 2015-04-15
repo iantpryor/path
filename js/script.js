@@ -104,20 +104,20 @@
                }
            }
            var startpoint = {
-               x: 0,
-               y: 9
-           }
-           var endpoint = {
                x: 9,
                y: 0
            }
-           var movingpoint = {
+           var endpoint = {
                x: 0,
                y: 9
            }
+           var movingpoint = {
+               x: 9,
+               y: 0
+           }
            var movingpointold = {
-               x: 0,
-               y: 9
+               x: 9,
+               y: 0
            }
            var walkArray = walk(startpoint, endpoint);
            
