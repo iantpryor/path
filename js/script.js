@@ -23,13 +23,15 @@
         }
         
         function floodfill(node, targetcolor, replacementcolor){
-            if(targetcolor == replacementcolor){
+            var nodeimgdata = c.getImageData(node.x,node.y,1,1).data;
+            var nodecolor = rgbToHex(nodeimgdata[0],nodeimgdata[1],nodeimgdata[2]);
+            
+            if(nodecolor != targetcolor){
                 return;
             }
-            if(node.color != targetcolor){
-                return;
-            }
-            //node.color = replacementcolor;
+            
+            c.fillStyle = replacementcolor;
+            c.fillRect(node.x, node.y, 1, 1);
             westnode = {
                 x:0,
                 y:0
