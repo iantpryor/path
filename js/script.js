@@ -26,6 +26,13 @@
             var nodeimgdata = c.getImageData(node.x,node.y,1,1).data;
             var nodecolor = "#" + rgbToHex(nodeimgdata[0],nodeimgdata[1],nodeimgdata[2]);
             
+            if(nodecolor = replacementcolor){
+                return;
+            }
+            if(targetcolor = replacementcolor){
+                return;
+            }
+            
             if(nodecolor != targetcolor){
                 return;
             }
