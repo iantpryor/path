@@ -130,7 +130,7 @@
                        break;
                    }
                }
-               if(movingpoint.x > pathWidth){
+               if(movingpoint.x > pathWidth -1){
                    movingpoint.x = movingpoint.x - 1;
                    if (index > -1) {
                        walkArray.splice(index, 1);
@@ -144,7 +144,7 @@
                    }
                    
                }
-               if(movingpoint.y > pathHeight){
+               if(movingpoint.y > pathHeight -1){
                    movingpoint.y = movingpoint.y - 1;
                    if (index > -1) {
                        walkArray.splice(index, 1);
