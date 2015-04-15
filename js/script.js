@@ -135,28 +135,28 @@
                    if (index > -1) {
                        walkArray.splice(index, 1);
                    }
-                   continue;
+                   
                }
                if(movingpoint.x < 0){
                    movingpoint.x = movingpoint.x + 1;
                    if (index > -1) {
                        walkArray.splice(index, 1);
                    }
-                   continue;
+                   
                }
                if(movingpoint.y > pathHeight){
                    movingpoint.y = movingpoint.y - 1;
                    if (index > -1) {
                        walkArray.splice(index, 1);
                    }
-                   continue;
+                   
                } 
                if( movingpoint.y < 0){
                    movingpoint.y = movingpoint.y + 1;
                    if (index > -1) {
                        walkArray.splice(index, 1);
                    }
-                   continue;
+                   
                }
                c.fillStyle = "#FFFFFF";
                c.fillRect(movingpoint.x*30 + 0.5, movingpoint.y*30 + 0.5, 30, 30);
