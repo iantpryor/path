@@ -265,9 +265,11 @@
             }
             
             //paint the start and end points.
-            c.fillStyle = "#33CC33";
+            //c.fillStyle = "#33CC33";
+            c.fillStyle = "#FFFFFF";
             c.fillRect(startpoint.x*30, startpoint.y*30, 24, 24);
-            c.fillStyle = "#CC0000";
+            //c.fillStyle = "#CC0000";
+            c.fillStyle = "#FFFFFF";
             c.fillRect(endpoint.x*30, endpoint.y*30, 24 ,24);
             
             var startnode = {
