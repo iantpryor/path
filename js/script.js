@@ -125,7 +125,7 @@
                var oppcurrMoveY = -1 * walkArray[i][1];
                var index = 0;
                for(var j = i; j< walkArray.length; j++){
-                   if(walkArray[j].x == oppcurrMoveX || walkArray[j].y == oppcurrMoveY){
+                   if(walkArray[j][0] == oppcurrMoveX || walkArray[j][1] == oppcurrMoveY){
                        index = j;
                        break;
                    }
