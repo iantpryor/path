@@ -123,9 +123,9 @@
                movingpoint.y = movingpoint.y + walkArray[i][1];
                var oppcurrMoveX = -1 * walkArray[i][0];
                var oppcurrMoveY = -1 * walkArray[i][1];
-               var index = 0;
+               var index = -1;
                for(var j = i; j< walkArray.length; j++){
-                   if(walkArray[j][0] == oppcurrMoveX || walkArray[j][1] == oppcurrMoveY){
+                   if(walkArray[j][0] == oppcurrMoveX && walkArray[j][1] == oppcurrMoveY){
                        index = j;
                        break;
                    }
