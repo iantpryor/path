@@ -19,12 +19,12 @@
             n = parseInt(n,10);
             if (isNaN(n)) return "00";
             n = Math.max(0,Math.min(n,255));
-            return "#" + "0123456789ABCDEF".charAt((n-n%16)/16) + "0123456789ABCDEF".charAt(n%16);
+            return "0123456789ABCDEF".charAt((n-n%16)/16) + "0123456789ABCDEF".charAt(n%16);
         }
         
         function floodfill(node, targetcolor, replacementcolor){
             var nodeimgdata = c.getImageData(node.x,node.y,1,1).data;
-            var nodecolor = rgbToHex(nodeimgdata[0],nodeimgdata[1],nodeimgdata[2]);
+            var nodecolor = "#" + rgbToHex(nodeimgdata[0],nodeimgdata[1],nodeimgdata[2]);
             
             if(nodecolor != targetcolor){
                 return;
