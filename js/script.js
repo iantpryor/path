@@ -248,7 +248,7 @@
                
                for(var l = 0; l< 30; l++){
                    c.fillStyle = "#FFFFFF";
-                   c.fillRect(movingpointold.x*30 + movedirX* (l + 5), movingpointold.y*30 + movedirY*(l + 5), 8, 8);
+                   c.fillRect(movingpointold.x*30 + movedirX*l + 8, movingpointold.y*30 + movedirY*l + 8, 6, 6);
                }
                
                c.fillStyle = "#FFFFFF";
