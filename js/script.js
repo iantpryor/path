@@ -38,7 +38,7 @@
             c.beginPath();
         }
         
-        function walk(start, stop){
+        function walk(start, stop, steps){
             var distX = stop.x - start.x;
             var distY = stop.y - start.y;
             
@@ -60,9 +60,9 @@
                 }
             }
             
-            var randSteps = 48;
             
-            for(var i = 0; i< randSteps; i++){
+            //add a number of random pairs based on how big our grid is
+            for(var i = 0; i< steps; i++){
                 var rand = Math.floor(Math.random() * 2);
                 if(rand < 1){
                     walkSteps.push(moves.u);
@@ -93,6 +93,23 @@
             var heightSelect = document.getElementById("height");
             var pathHeight = heightSelect.options[heightSelect.selectedIndex].value;
             //alert(pathWidth + ", " + pathHeight);
+            
+            //create a start and endpoint based on the grid size
+            var startpoint = {
+               x: -1,
+               y: -1
+            }
+           var endpoint = {
+               x: -1,
+               y: -1
+            }
+            startpoint.x = 0;
+            startpoint.y = pathHeight - 1;
+            
+            endpoint.x = pathWidth - 1;
+            endpoint.y = 0;
+            
+            //paint the base grid
             for(var i = 0; i< pathWidth; i++){
                 for(var j = 0; j< pathHeight; j++){
                     
@@ -103,25 +120,28 @@
                     c.stroke();
                }
            }
-           var startpoint = {
-               x: 9,
-               y: 0
-           }
-           var endpoint = {
-               x: 0,
-               y: 9
-           }
+           
+           var randsteps = 2* Math.floor((pathWidth/2) * (pathHeight/2));
+           
+           //create a random path that we will walk
+           var walkArray = walk(startpoint, endpoint, randsteps);
+           
+           //create two moving points representing where we are and where we were
            var movingpoint = {
-               x: 9,
-               y: 0
-           }
+               x: -1,
+               y: -1
+           };
            var movingpointold = {
-               x: 9,
-               y: 0
-           }
-           var walkArray = walk(startpoint, endpoint);
+               x: -1,
+               y: -1
+           };
+           movingpoint.x = startpoint.x;
+           movingpoint.y = startpoint.y;
+           movingpointold.x = startpoint.x;
+           movingpointold.y = startpoint.y;
            
            
+           //follow the path and paint along the way
            for (var i = 0; i< walkArray.length; i++){
                movingpoint.x = movingpoint.x + walkArray[i][0];
                movingpoint.y = movingpoint.y + walkArray[i][1];
@@ -194,6 +214,7 @@
                 }
             }*/
             
+            //paint the start and end points.
             c.fillStyle = "#33CC33";
             c.fillRect(startpoint.x*30, startpoint.y*30, 28, 28);
             c.fillStyle = "#CC0000";
