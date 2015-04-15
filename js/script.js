@@ -22,11 +22,14 @@
             return "0123456789ABCDEF".charAt((n-n%16)/16) + "0123456789ABCDEF".charAt(n%16);
         }
         
-        function floodfill(node, targetcolor, replacementcolor){
+        function floodfill(node, targetcolor, replacementcolor, pathWidth, pathHeight){
             var nodeimgdata = c.getImageData(node.x,node.y,1,1).data;
             var nodecolor = "#" + rgbToHex(nodeimgdata[0],nodeimgdata[1],nodeimgdata[2]);
             
             if(nodecolor != targetcolor){
+                return;
+            }
+            if(node.x < 0 || node.x >= pathWidth * 30 || node.y < 0 || node.y >= pathHeight*30){
                 return;
             }
             
@@ -56,10 +59,10 @@
             };
             southnode.x = node.x;
             southnode.y = node.y + 1;
-            floodfill(westnode, targetcolor, replacementcolor);
-            floodfill(eastnode, targetcolor, replacementcolor);
-            floodfill(northnode, targetcolor, replacementcolor);
-            floodfill(southnode, targetcolor, replacementcolor);
+            floodfill(westnode, targetcolor, replacementcolor, pathWidth, pathHeight);
+            floodfill(eastnode, targetcolor, replacementcolor, pathWidth, pathHeight);
+            floodfill(northnode, targetcolor, replacementcolor, pathWidth, pathHeight);
+            floodfill(southnode, targetcolor, replacementcolor, pathWidth, pathHeight);
             return;
             
         }
@@ -278,7 +281,7 @@
             };
             startnode.x = startpoint.x*30 + 5;
             startnode.y = startpoint.y*30 + 5;
-            floodfill(startnode,"#FFFFFF","#0099FF")
+            floodfill(startnode,"#FFFFFF","#0099FF", pathWidth, pathHeight);
             var imgdata = c.getImageData(0,0,1,1).data;
         }
     }
