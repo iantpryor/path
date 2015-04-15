@@ -99,7 +99,7 @@
                     c.beginPath();
                     //c.lineWidth = 1;
                     c.fillStyle = "#000000";
-                    c.fillRect(i*30+0.5, j*30+0.5, 30, 30);
+                    c.fillRect(i*30, j*30, 30, 30);
                     c.stroke();
                }
            }
@@ -168,11 +168,11 @@
                
                for(var l = 0; l< 30; l++){
                    c.fillStyle = "#FFFFFF";
-                   c.fillRect(movingpointold.x*30 + l*movedirX + 12.5, movingpointold.y*30 + l*movedirY + 12.5, 4, 4);
+                   c.fillRect(movingpointold.x*30 + l*movedirX + 12, movingpointold.y*30 + l*movedirY + 12, 4, 4);
                }
                
                c.fillStyle = "#FFFFFF";
-               c.fillRect(movingpoint.x*30 + 0.5, movingpoint.y*30 + 0.5, 28, 28);
+               c.fillRect(movingpoint.x*30, movingpoint.y*30, 28, 28);
                
                
                movingpointold.x = movingpoint.x;
@@ -195,9 +195,9 @@
             }*/
             
             c.fillStyle = "#33CC33";
-            c.fillRect(startpoint.x*30 + 0.5, startpoint.y*30 + 0.5, 30, 30);
+            c.fillRect(startpoint.x*30, startpoint.y*30, 30, 30);
             c.fillStyle = "#CC0000";
-            c.fillRect(endpoint.x*30 +0.5, endpoint.y*30 +0.5, 30 ,30);
+            c.fillRect(endpoint.x*30, endpoint.y*30, 30 ,30);
         }
     }
 })(window, document, undefined);
