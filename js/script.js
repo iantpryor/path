@@ -206,9 +206,9 @@
                     if(randRoom < 1){
                         roomDim = createRoom(i,j,pathWidth,pathHeight);
                         c.beginPath();
-                        c.lineWidth = 3;
+                        //c.lineWidth = 3;
                         c.fillStyle = "#FFFFFF";
-                        c.fillRect(i*30 , j*30, roomDim[0]*24, roomDim[1]*24);
+                        c.fillRect(i*30 , j*30, roomDim[0]*30 - roomDim[0]*6, roomDim[1]*30 - roomDim[1]*6);
                         c.stroke();
                     }
                 }
