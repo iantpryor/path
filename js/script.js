@@ -167,9 +167,11 @@
                
                for(var j = movingpointold.x; j <= movingpoint.x; j++){
                    for(var k = movingpointold.y; k <= movingpoint.y; k++){
+                       var movedirX = movingpointold.x - movingpoint.x);
+                       var movedirY = movingpointold.y - movingpoint.y);
                        for(var l = 0; l< 30; l++){
                            c.fillStyle = "#FFFFFF";
-                           c.fillRect(j*30 + l + 14.5, k*30 + l + 14.5, 2, 2);
+                           c.fillRect(j*30 + l*movedirX + 14.5, k*30 + l*movedirY + 14.5, 2, 2);
                        }
                    }
                }
