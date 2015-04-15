@@ -199,7 +199,7 @@
                movingpointold.y = movingpoint.y;
            }
            
-            /*
+            
             for(var i = 0; i< Math.floor(pathWidth/2)+1; i++){
                 for(var j = 0; j< Math.floor(pathHeight/2)+1; j++){
                     var randRoom = Math.floor((Math.random() * 9));
@@ -208,11 +208,11 @@
                         c.beginPath();
                         c.lineWidth = 3;
                         c.fillStyle = "#FFFFFF";
-                        c.fillRect(i*30 + 0.5, j*30+ 0.5, roomDim[0]*30, roomDim[1]*30);
+                        c.fillRect(i*30 , j*30, roomDim[0]*24, roomDim[1]*24);
                         c.stroke();
                     }
                 }
-            }*/
+            }
             
             //paint the start and end points.
             c.fillStyle = "#33CC33";
