@@ -158,7 +158,7 @@
                    }
                    
                }
-               c.fillStyle = "#00CCFF";
+               c.fillStyle = "#000000";
                c.fillRect(movingpoint.x*30 + 0.5, movingpoint.y*30 + 0.5, 30, 30);
            }
            
