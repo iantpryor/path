@@ -35,25 +35,25 @@
             
             c.fillStyle = replacementcolor;
             c.fillRect(node.x, node.y, 1, 1);
-            westnode = {
+            var westnode = {
                 x:0,
                 y:0
             };
             westnode.x = node.x - 1;
             westnode.y = node.y;
-            eastnode = {
+            var eastnode = {
                 x:0,
                 y:0
             };
             eastnode.x = node.x + 1;
             eastnode.x = node.x
-            northnode = {
+            var northnode = {
                 x:0,
                 y:0
             };
             northnode.x = node.x;
             northnode.y = node.y - 1;
-            southnode = {
+            var southnode = {
                 x:0,
                 y:0
             };
