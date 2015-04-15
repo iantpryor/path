@@ -286,8 +286,8 @@
                 x:0,
                 y:0
             };
-            startnode.x = startpoint.x*30 + 5;
-            startnode.y = startpoint.y*30 + 5;
+            startnode.x = startpoint.x*30;
+            startnode.y = startpoint.y*30;
             floodfill(startnode,"#FFFFFF","#0099FF", pathWidth, pathHeight);
             var imgdata = c.getImageData(0,0,1,1).data;
         }
