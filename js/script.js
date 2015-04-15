@@ -195,9 +195,9 @@
             }*/
             
             c.fillStyle = "#33CC33";
-            c.fillRect(startpoint.x*30, startpoint.y*30, 30, 30);
+            c.fillRect(startpoint.x*30, startpoint.y*30, 28, 28);
             c.fillStyle = "#CC0000";
-            c.fillRect(endpoint.x*30, endpoint.y*30, 30 ,30);
+            c.fillRect(endpoint.x*30, endpoint.y*30, 28 ,28);
         }
     }
 })(window, document, undefined);
