@@ -163,16 +163,17 @@
                    
                }
                
-               c.fillStyle = "#FFFFFF";
-               c.fillRect(movingpoint.x*30 + 0.5, movingpoint.y*30 + 0.5, 28, 28);
+               
                
                for(var j = movingpointold.x; j <= movingpoint.x; j++){
                    for(var k = movingpointold.y; k <= movingpoint.y; k++){
                        c.fillStyle = "#FFFFFF";
                        c.fillRect(j*30 + 14.5, k*30 + 14.5, 2, 2);
                    }
-                   
                }
+               c.fillStyle = "#FFFFFF";
+               c.fillRect(movingpoint.x*30 + 0.5, movingpoint.y*30 + 0.5, 28, 28);
+               
                
                movingpointold.x = movingpoint.x;
                movingpointold.y = movingpoint.y;
