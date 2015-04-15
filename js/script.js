@@ -14,6 +14,46 @@
         };
         document.getElementById("paintbtn").onclick = paint;
         
+        function floodfill(node, targetcolor, replacementcolor){
+            if(targetcolor == replacementcolor){
+                return;
+            }
+            if(node.color != targetcolor){
+                return;
+            }
+            node.color = replacementcolor;
+            westnode = {
+                x:0,
+                y:0
+            };
+            westnode.x = node.x - 1;
+            westnode.y = node.y;
+            eastnode = {
+                x:0,
+                y:0
+            };
+            eastnode.x = node.x + 1;
+            eastnode.x = node.x
+            northnode = {
+                x:0,
+                y:0
+            };
+            northnode.x = node.x;
+            northnode.y = node.y - 1;
+            southnode = {
+                x:0,
+                y:0
+            };
+            southnode.x = node.x;
+            southnode.y = node.y + 1;
+            floodfill(westnode, targetcolor, replacementcolor);
+            floodfill(eastnode, targetcolor, replacementcolor);
+            floodfill(northnode, targetcolor, replacementcolor);
+            floodfill(southnode, targetcolor, replacementcolor);
+            return;
+            
+        }
+        
         function shuffle(array) {
           var currentIndex = array.length, temporaryValue, randomIndex ;
         
@@ -219,6 +259,8 @@
             c.fillRect(startpoint.x*30, startpoint.y*30, 24, 24);
             c.fillStyle = "#CC0000";
             c.fillRect(endpoint.x*30, endpoint.y*30, 24 ,24);
+            
+            var imgdata = c.getImageData(0,0,1,1).data;
         }
     }
 })(window, document, undefined);
