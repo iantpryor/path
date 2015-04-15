@@ -163,18 +163,14 @@
                    
                }
                
+               var movedirX = movingpoint.x - movingpointold.x;
+               var movedirY = movingpoint.y - movingpointold.y;
                
-               
-               for(var j = movingpointold.x; j <= movingpoint.x; j++){
-                   for(var k = movingpointold.y; k <= movingpoint.y; k++){
-                       var movedirX = movingpoint.x - movingpointold.x;
-                       var movedirY = movingpoint.y - movingpointold.y;
-                       for(var l = 0; l< 30; l++){
-                           c.fillStyle = "#FFFFFF";
-                           c.fillRect(j*30 + l*movedirX + 14.5, k*30 + l*movedirY + 14.5, 2, 2);
-                       }
-                   }
+               for(var l = 0; l< 30; l++){
+                   c.fillStyle = "#FFFFFF";
+                   c.fillRect(movepointold.x*30 + l*movedirX + 14.5, movepointold.y*30 + l*movedirY + 14.5, 2, 2);
                }
+               
                c.fillStyle = "#FFFFFF";
                c.fillRect(movingpoint.x*30 + 0.5, movingpoint.y*30 + 0.5, 28, 28);
                
