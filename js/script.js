@@ -164,12 +164,12 @@
                }
                
                c.fillStyle = "#FFFFFF";
-               c.fillRect(movingpoint.x*30 + 0.5, movingpoint.y*30 + 0.5, 25, 25);
+               c.fillRect(movingpoint.x*30 + 0.5, movingpoint.y*30 + 0.5, 28, 28);
                
                for(var j = movingpointold.x; j <= movingpoint.x; j++){
                    for(var k = movingpointold.y; k <= movingpoint.y; k++){
                        c.fillStyle = "#FFFFFF";
-                       c.fillRect(j*30 + 14, k*30 + 14, 2, 2);
+                       c.fillRect(j*30 + 14.5, k*30 + 14.5, 2, 2);
                    }
                    
                }
@@ -178,7 +178,7 @@
                movingpointold.y = movingpoint.y;
            }
            
-            
+            /*
             for(var i = 0; i< Math.floor(pathWidth/2)+1; i++){
                 for(var j = 0; j< Math.floor(pathHeight/2)+1; j++){
                     var randRoom = Math.floor((Math.random() * 9));
@@ -191,7 +191,7 @@
                         c.stroke();
                     }
                 }
-            }
+            }*/
             
             c.fillStyle = "#33CC33";
             c.fillRect(startpoint.x*30 + 0.5, startpoint.y*30 + 0.5, 30, 30);
