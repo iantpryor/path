@@ -46,7 +46,7 @@
                 y:0
             };
             eastnode.x = node.x + 1;
-            eastnode.x = node.x
+            eastnode.y = node.y
             var northnode = {
                 x:0,
                 y:0
