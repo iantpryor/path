@@ -123,12 +123,10 @@
                movingpoint.y = movingpoint.y + walkArray[i][1];
                var oppcurrMoveX = -1 * walkArray[i][0];
                var oppcurrMoveY = -1 * walkArray[i][1];
-               var oppMove = [];
-               oppMove.push(oppcurrMoveX);
-               oppMove.push(oppcurrMoveY);
+               var index = 0;
                for(var j = i; j< walkArray.length; j++){
                    if(walkArray[j].x == oppcurrMoveX || walkArray[j].y == oppcurrMoveY){
-                       walkArray.splice(j, 1);
+                       index = j;
                        break;
                    }
                }
