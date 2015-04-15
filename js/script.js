@@ -115,6 +115,10 @@
                x: 0,
                y: 9
            }
+           var movingpointold = {
+               x: 0,
+               y: 9
+           }
            var walkArray = walk(startpoint, endpoint);
            
            
@@ -160,6 +164,16 @@
                }
                c.fillStyle = "#FFFFFF";
                c.fillRect(movingpoint.x*30 + 5.5, movingpoint.y*30 + 5.5, 25, 25);
+               for(var j = movingpointold.x ; j <= movingpoint.x; j++){
+                   for(var k = movingpointold.y; k <= movingpoint.y k++){
+                       c.fillStyle = "#FFFFFF";
+                       c.fillRect(j*30 + 14, k*30 + 14, 2, 2);
+                   }
+                   
+               }
+               
+               movingpointold.x = movingpoint.x;
+               movingpointold.y = movingpoint.y;
            }
            
             
