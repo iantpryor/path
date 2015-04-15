@@ -60,7 +60,7 @@
                 }
             }
             
-            var randSteps = 16;
+            var randSteps = 24;
             
             for(var i = 0; i< randSteps; i++){
                 var rand =Math.floor(Math.random() * (2 - 1 + 1)) + 1;
