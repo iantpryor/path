@@ -200,7 +200,7 @@
            movingpointold.x = startpoint.x;
            movingpointold.y = startpoint.y;
            
-           
+           var branch = 0;
            //follow the path and paint along the way
            for (var i = 0; i< walkArray.length; i++){
                movingpoint.x = movingpoint.x + walkArray[i][0];
@@ -253,6 +253,13 @@
                
                c.fillStyle = "#FFFFFF";
                c.fillRect(movingpoint.x*30, movingpoint.y*30, 24, 24);
+               
+               if( i > walkArray.length/2 && branch < 1){
+                   c.fillStyle = "CC66FF";
+                   c.fillRect(movingpoint.x*30, movingpoint.y*30, 24, 24);
+                   branch++;
+               }
+               
                
                
                movingpointold.x = movingpoint.x;
