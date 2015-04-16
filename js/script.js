@@ -258,7 +258,7 @@
                c.fillStyle = "#FFFFFF";
                c.fillRect(movingpoint.x*30, movingpoint.y*30, 24, 24);
                
-               if( i > walkArray.length/2 && branch < 1){
+               if( i > Math.floor(walkArray.length/2) && branch < 1){
                    branchpoint.x = movingpoint.x;
                    branchpoint.y = movingpoint.y;
                    
