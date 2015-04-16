@@ -263,13 +263,17 @@
                }
                if(movedirX < 0){
                    nodemap[movingpointold.x][movingpointold.y].w = 1;
+                   nodemap[movingpoint.x][movingpoint.y].e = 1;
                }else if(movedirX > 0){
                    nodemap[movingpointold.x][movingpointold.y].e = 1;
+                   nodemap[movingpoint.x][movingpoint.y].w = 1;
                }
                if(movedirY < 0){
                    nodemap[movingpointold.x][movingpointold.y].n =1;
+                   nodemap[movingpoint.x][movingpoint.y].s = 1;
                }else if(movedirY >0){
                    nodemap[movingpointold.x][movingpointold.y].s = 1;
+                   nodemap[movingpoint.x][movingpoint.y].n = 1;
                }
                nodemap[movingpoint.x][movingpoint.y].isVisited = 1
                c.fillStyle = "#FFFFFF";
@@ -315,7 +319,7 @@
                }
            }
             
-            for(var i = 0; i< Math.floor(pathWidth/2)+1; i++){
+            /*for(var i = 0; i< Math.floor(pathWidth/2)+1; i++){
                 for(var j = 0; j< Math.floor(pathHeight/2)+1; j++){
                     var randRoom = Math.floor((Math.random() * 9));
                     if(randRoom < 1){
@@ -327,7 +331,7 @@
                         c.stroke();
                     }
                 }
-            }
+            }*/
             
             //paint the start and end points.
             //c.fillStyle = "#33CC33";
