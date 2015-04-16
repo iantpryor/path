@@ -142,8 +142,12 @@
             var randw = Math.floor((Math.random() * (pw/2) + 1) );
             var randh = Math.floor((Math.random() * (ph/2) + 1) );
             //alert(randw + ", " + randh);
-            
-            return [randw, randh];
+            for(i = 0; i< randw; i++){
+                for(j = 0; j< randh; j++){
+                    nodemap[x+i][y+j].isRoom = 1;
+                }
+            }
+            //return [randw, randh];
         }
     
         function paint(){
@@ -177,6 +181,7 @@
                 for(var j = 0; j< pathHeight; j++){
                     var node = {
                         isVisited: 0,
+                        isRoom:0,
                         n:0,
                         s:0,
                         e:0,
@@ -292,6 +297,18 @@
                movingpointold.x = movingpoint.x;
                movingpointold.y = movingpoint.y;
            }
+           for(var i = 0; i< Math.floor(pathWidth/2)+1; i++){
+                for(var j = 0; j< Math.floor(pathHeight/2)+1; j++){
+                    var randRoom = Math.floor((Math.random() * 9));
+                    if(randRoom < 1){
+                        roomDim = createRoom(i,j,pathWidth,pathHeight);
+                        //c.beginPath();
+                        //c.fillStyle = "#FFFFFF";
+                        //c.fillRect(i*30 + 6, j*30 + 6, roomDim[0]*30 - 6*2, roomDim[1]*30 - 6*2);
+                        //c.stroke();
+                    }
+                }
+            }
            
            
            //paint the map data
@@ -319,21 +336,15 @@
                            c.fillRect(i*30, j*30 + 12, 6, 6);
                        }
                    }
+                   if(nodemap[i][j].isRoom == 1){
+                       c.fillStyle = "#FFFFFF";
+                       c.fillRect(i*30, j*30, 30, 30);
+                       
+                   }
                }
            }
             
-            for(var i = 0; i< Math.floor(pathWidth/2)+1; i++){
-                for(var j = 0; j< Math.floor(pathHeight/2)+1; j++){
-                    var randRoom = Math.floor((Math.random() * 9));
-                    if(randRoom < 1){
-                        roomDim = createRoom(i,j,pathWidth,pathHeight);
-                        c.beginPath();
-                        c.fillStyle = "#FFFFFF";
-                        c.fillRect(i*30 + 6, j*30 + 6, roomDim[0]*30 - 6*2, roomDim[1]*30 - 6*2);
-                        c.stroke();
-                    }
-                }
-            }
+            
             
             //paint the start and end points.
             //c.fillStyle = "#33CC33";
