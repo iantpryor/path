@@ -329,7 +329,7 @@
                         roomDim = createRoom(i,j,pathWidth,pathHeight);
                         c.beginPath();
                         c.fillStyle = "#FFFFFF";
-                        c.fillRect(i*30 + 6, j*30 + 6, roomDim[0]*30 - 6, roomDim[1]*30 - 6);
+                        c.fillRect(i*30 + 6, j*30 + 6, roomDim[0]*30 - 6*i, roomDim[1]*30 - 6*j);
                         c.stroke();
                     }
                 }
