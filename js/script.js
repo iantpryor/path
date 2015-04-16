@@ -12,6 +12,7 @@
             l: [-1,0],
             r: [1,0]
         };
+        var nodemap = [];
         document.getElementById("paintbtn").onclick = paint;
         
         function rgbToHex(R,G,B) {return toHex(R)+toHex(G)+toHex(B)}
@@ -171,15 +172,21 @@
             
             //paint the base grid
             for(var i = 0; i< pathWidth; i++){
+                nodemap.push([]);
                 for(var j = 0; j< pathHeight; j++){
-                    
-                    c.beginPath();
-                    //c.lineWidth = 1;
-                    c.fillStyle = "#000000";
-                    c.fillRect(i*30, j*30, 30, 30);
-                    c.stroke();
+                    var node = {
+                        isvisited: 0,
+                        n:0,
+                        s:0,
+                        e:0,
+                        w:0,
+                        x:i,
+                        y:j
+                    };
+                    nodemap[i].push(node);
                }
            }
+           
            
            var randsteps = 2* Math.floor((pathWidth/2) * (pathHeight/2));
            
