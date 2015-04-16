@@ -90,7 +90,6 @@
             array[currentIndex] = array[randomIndex];
             array[randomIndex] = temporaryValue;
           }
-        
           return array;
         }
         
@@ -103,9 +102,7 @@
         function walk(start, stop, steps){
             var distX = stop.x - start.x;
             var distY = stop.y - start.y;
-            
-            
-            
+
             var walkSteps = [];
             for(var i = 0; i< Math.abs(distX); i++){
                 if(distX < 0){
@@ -134,7 +131,6 @@
                     walkSteps.push(moves.r);
                 }
             }
-            
             return shuffle(walkSteps);
         }
         
@@ -147,7 +143,6 @@
                     nodemap[x+i][y+j].isRoom = 1;
                 }
             }
-            
             return [randw, randh];
         }
     
@@ -171,7 +166,6 @@
             }
             startpoint.x = 0;
             startpoint.y = pathHeight - 1;
-            
             endpoint.x = pathWidth - 1;
             endpoint.y = 0;
             
@@ -206,20 +200,22 @@
                x: -1,
                y: -1
            };
-           
            movingpoint.x = startpoint.x;
            movingpoint.y = startpoint.y;
            movingpointold.x = startpoint.x;
            movingpointold.y = startpoint.y;
+           
+           //create a branch point
            var branch = 0;
            var branchpoint = {
                x: -1,
                y: -1
            };
            
-           //follow the path and paint along the way
+           //set the start node as visited in the beginning
            nodemap[startpoint.x][startpoint.y].isVisited = 1;
            
+           //loop through the walk
            for (var i = 0; i< walkArray.length; i++){
                movingpoint.x = movingpoint.x + walkArray[i][0];
                movingpoint.y = movingpoint.y + walkArray[i][1];
@@ -237,21 +233,18 @@
                    if (index > -1) {
                        walkArray.splice(index, 1);
                    }
-                   
                }
                if(movingpoint.x < 0){
                    movingpoint.x = movingpoint.x + 1;
                    if (index > -1) {
                        walkArray.splice(index, 1);
                    }
-                   
                }
                if(movingpoint.y > pathHeight -1){
                    movingpoint.y = movingpoint.y - 1;
                    if (index > -1) {
                        walkArray.splice(index, 1);
                    }
-                   
                } 
                if( movingpoint.y < 0){
                    movingpoint.y = movingpoint.y + 1;
@@ -277,31 +270,20 @@
                    nodemap[movingpointold.x][movingpointold.y].s = 1;
                    nodemap[movingpoint.x][movingpoint.y].n = 1;
                }
+               
                nodemap[movingpoint.x][movingpoint.y].isVisited = 1
                
+               //add a branch point half way through
                if( i >= Math.floor(walkArray.length/2) && branch < 1){
                    branchpoint.x = movingpoint.x;
                    branchpoint.y = movingpoint.y;
                    branch++;
                }
-               
+              
                movingpointold.x = movingpoint.x;
                movingpointold.y = movingpoint.y;
            }
-           for(var i = 0; i< Math.floor(pathWidth/2)+1; i++){
-                for(var j = 0; j< Math.floor(pathHeight/2)+1; j++){
-                    var randRoom = Math.floor((Math.random() * 9));
-                    if(randRoom < 1){
-                        roomDim = createRoom(i,j,pathWidth,pathHeight);
-                        c.beginPath();
-                        c.fillStyle = "#FFFFFF";
-                        c.fillRect(i*30 + 6, j*30 + 6, roomDim[0]*30 - 6*2, roomDim[1]*30 - 6*2);
-                        c.stroke();
-                    }
-                }
-            }
-           
-           
+
            //paint the map data
            for(var i = 0; i< nodemap.length; i++){
                for(var j = 0; j < nodemap[i].length; j++){
@@ -334,6 +316,20 @@
                    }
                }
            }
+           
+           //paint the rooms seperate so they look nice
+           for(var i = 0; i< Math.floor(pathWidth/2)+1; i++){
+                for(var j = 0; j< Math.floor(pathHeight/2)+1; j++){
+                    var randRoom = Math.floor((Math.random() * 9));
+                    if(randRoom < 1){
+                        roomDim = createRoom(i,j,pathWidth,pathHeight);
+                        c.beginPath();
+                        c.fillStyle = "#FFFFFF";
+                        c.fillRect(i*30 + 6, j*30 + 6, roomDim[0]*30 - 6*2, roomDim[1]*30 - 6*2);
+                        c.stroke();
+                    }
+                }
+            }
            
            //flood filling to get rid of stray rooms but it doesn't work yet
            var startnode = {
