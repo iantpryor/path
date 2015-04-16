@@ -13,66 +13,40 @@
             r: [1,0]
         };
         var nodemap = [];
+        var roomlist = [];
         document.getElementById("paintbtn").onclick = paint;
         
-        function rgbToHex(R,G,B) {return toHex(R)+toHex(G)+toHex(B)}
-        function toHex(n) {
-            n = parseInt(n,10);
-            if (isNaN(n)) return "00";
-            n = Math.max(0,Math.min(n,255));
-            return "0123456789ABCDEF".charAt((n-n%16)/16) + "0123456789ABCDEF".charAt(n%16);
-        }
-        
-        function floodfill(node, targetcolor, replacementcolor, pathWidth, pathHeight){
-            var nodeimgdata = c.getImageData(node.x,node.y,1,1).data;
-            var nodecolor = "#" + rgbToHex(nodeimgdata[0],nodeimgdata[1],nodeimgdata[2]);
-            
-            if(nodecolor == replacementcolor){
-                return;
+        function removeRooms(){
+            var indecies = [];
+            for(var i = 0; i< roomlist.length; i++){
+                var remove = 1;
+                for(var j = 0; j< roomlist[i].width; j++){
+                    if(nodemap[roomlist[i].x + j][roomlist[i].y].isVisited == 1){
+                        remove = 0;
+                        break;
+                    }
+                    if(nodemap[roomlist[i].x + j][roomlist[i].y + roomlist[i].height].isVisited == 1){
+                        remove = 0;
+                        break;
+                    }
+                }
+                for(var j = 0; j< roomlist[i].height; j++){
+                    if(nodemap[roomlist[i].x][roomlist[i].y + j].isVisited == 1){
+                        remove = 0;
+                        break;
+                    }
+                    if(nodemap[roomlist[i].x + roomlist[i].width][roomlist[i].y + j].isVisited == 1){
+                        remove = 0;
+                        break;
+                    }
+                }
+                if(remove ==1 ){
+                    indecies.push(i);
+                }
             }
-            if(targetcolor == replacementcolor){
-                return;
+            for(var i= 0; i< indecies.length; i++){
+                roomlist.splice(indecies[i], 1);
             }
-            
-            if(nodecolor != targetcolor){
-                return;
-            }
-            if(node.x < 0 || node.x >= pathWidth * 30 || node.y < 0 || node.y >= pathHeight*30){
-                return;
-            }
-            
-            c.fillStyle = replacementcolor;
-            c.fillRect(node.x, node.y, 8, 8);
-            var westnode = {
-                x:0,
-                y:0
-            };
-            westnode.x = node.x - 8;
-            westnode.y = node.y;
-            var eastnode = {
-                x:0,
-                y:0
-            };
-            eastnode.x = node.x + 8;
-            eastnode.y = node.y
-            var northnode = {
-                x:0,
-                y:0
-            };
-            northnode.x = node.x;
-            northnode.y = node.y - 8;
-            var southnode = {
-                x:0,
-                y:0
-            };
-            southnode.x = node.x;
-            southnode.y = node.y + 8;
-            floodfill(westnode, targetcolor, replacementcolor, pathWidth, pathHeight);
-            floodfill(eastnode, targetcolor, replacementcolor, pathWidth, pathHeight);
-            floodfill(northnode, targetcolor, replacementcolor, pathWidth, pathHeight);
-            floodfill(southnode, targetcolor, replacementcolor, pathWidth, pathHeight);
-            return;
-            
         }
         
         function shuffle(array) {
@@ -97,6 +71,7 @@
             c.clearRect ( 0 , 0 , canvas.width, canvas.height );
             c.beginPath();
             nodemap = [];
+            roomlist = [];
         }
         
         function walk(start, stop, steps){
@@ -143,6 +118,13 @@
                     nodemap[x+i][y+j].isRoom = 1;
                 }
             }
+            var room = {
+              x:x,
+              y:y,
+              width: randw,
+              height: randh,
+            };
+            roomlist.push(room);
             return [randw, randh];
         }
     
