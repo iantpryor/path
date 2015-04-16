@@ -290,7 +290,7 @@
            
            for(var i = 0; i< nodemap.length; i++){
                for(var j = 0; j < nodemap[i].length; j++){
-                   if(nodemapd[i][j].isVisited == 0){
+                   if(nodemap[i][j].isVisited == 0){
                        c.fillStyle = "#000000";
                        c.fillRect(i*30, j*30, 30, 30);
                    }
