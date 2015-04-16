@@ -288,6 +288,14 @@
                movingpointold.y = movingpoint.y;
            }
            
+           for(var i = 0; i< nodemap.length; i++){
+               for(var j = 0; j < nodemap[i].length; j++){
+                   if(nodemapd[i][j].isvisited == 0){
+                       c.fillStyle = "#000000";
+                       c.fillRect(i*30, j*30, 30, 30);
+                   }
+               }
+           }
             
             for(var i = 0; i< Math.floor(pathWidth/2)+1; i++){
                 for(var j = 0; j< Math.floor(pathHeight/2)+1; j++){
