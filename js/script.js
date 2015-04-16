@@ -261,7 +261,17 @@
                    c.fillStyle = "#FFFFFF";
                    c.fillRect(movingpointold.x*30 + movedirX*l + 8, movingpointold.y*30 + movedirY*l + 8, 6, 6);
                }
-               
+               if(movedirX < 0){
+                   nodemap[movingpointold.x][movingpointold.y].w = 1;
+               }else{
+                   nodemap[movingpointold.x][movingpointold.y].e = 1;
+               }
+               if(movedirY < 0){
+                   nodemap[movingpointold.x][movingpointold.y].n =1;
+               }else{
+                   nodemap[movingpointold.x][movingpointold.y].s = 1;
+               }
+               nodemap[movingpoint.x][movingpoint.y].isVisited = 1
                c.fillStyle = "#FFFFFF";
                c.fillRect(movingpoint.x*30, movingpoint.y*30, 24, 24);
                
