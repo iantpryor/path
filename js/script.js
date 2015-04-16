@@ -290,9 +290,27 @@
            
            for(var i = 0; i< nodemap.length; i++){
                for(var j = 0; j < nodemap[i].length; j++){
-                   if(nodemap[i][j].isVisited == 0){
-                       c.fillStyle = "#000000";
-                       c.fillRect(i*30, j*30, 30, 30);
+                   c.fillStyle = "#000000";
+                   c.fillRect(i*30, j*30, 30, 30);
+                   if(nodemap[i][j].isVisited == 1){
+                       c.fillStyle = "#FFFFFF";
+                       c.fillRect(i*30 + 6, j*30 + 6, 18, 18);
+                       if(nodemap[i][j].n){
+                           c.fillStyle = "#FFFFFF";
+                           c.fillRect(i*30 + 12, j*30, 6, 6);
+                       }
+                       if(nodemap[i][j].s){
+                           c.fillStyle = "#FFFFFF";
+                           c.fillRect(i*30 + 12, j*30 + 24, 6, 6);
+                       }
+                       if(nodemap[i][j].e){
+                           c.fillStyle = "#FFFFFF";
+                           c.fillRect(i*30 + 24, j*30 + 12, 6, 6);
+                       }
+                       if(nodemap[i][j].w){
+                           c.fillStyle = "#FFFFFF";
+                           c.fillRect(i*30, j*30 + 12, 6, 6);
+                       }
                    }
                }
            }
