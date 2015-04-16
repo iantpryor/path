@@ -354,12 +354,12 @@
             
             //paint the start and end points.
             c.fillStyle = "#33CC33";
-            c.fillRect(startpoint.x*30, startpoint.y*30, 24, 24);
+            c.fillRect(startpoint.x*30 + 6, startpoint.y*30 + 6, 18, 18);
             c.fillStyle = "#CC0000";
-            c.fillRect(endpoint.x*30, endpoint.y*30, 24 ,24);
+            c.fillRect(endpoint.x*30 + 6, endpoint.y*30 + 6, 18, 18);
             
             c.fillStyle = "#CC66FF";
-            c.fillRect(branchpoint.x*30, branchpoint.y*30, 24, 24);
+            c.fillRect(branchpoint.x*30 + 6, branchpoint.y*30 + 6, 18, 18);
             
         }
     }
