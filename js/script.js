@@ -148,10 +148,10 @@
             reset();
             
             var widthSelect = document.getElementById("width");
-            var pathWidth = widthSelect.options[widthSelect.selectedIndex].value;
+            var pathWidth = parseInt(widthSelect.options[widthSelect.selectedIndex].value);
             
             var heightSelect = document.getElementById("height");
-            var pathHeight = heightSelect.options[heightSelect.selectedIndex].value;
+            var pathHeight = parseInt(heightSelect.options[heightSelect.selectedIndex].value);
             //alert(pathWidth + ", " + pathHeight);
             
             //create a start and endpoint based on the grid size
