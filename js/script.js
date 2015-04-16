@@ -214,6 +214,8 @@
                y: -1
            };
            //follow the path and paint along the way
+           nodemap[startpoint.x][startpoint.y].isVisited = 1;
+           
            for (var i = 0; i< walkArray.length; i++){
                movingpoint.x = movingpoint.x + walkArray[i][0];
                movingpoint.y = movingpoint.y + walkArray[i][1];
