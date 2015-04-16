@@ -97,6 +97,7 @@
         function reset(){
             c.clearRect ( 0 , 0 , canvas.width, canvas.height );
             c.beginPath();
+            nodemap = [];
         }
         
         function walk(start, stop, steps){
