@@ -258,7 +258,7 @@
                c.fillStyle = "#FFFFFF";
                c.fillRect(movingpoint.x*30, movingpoint.y*30, 24, 24);
                
-               if( i >= (pathWidth + pathHeight)/2 - 1 && branch < 1){
+               if( i >= Math.floor(walkArray.lenght/2) && branch < 1){
                    branchpoint.x = movingpoint.x;
                    branchpoint.y = movingpoint.y;
                    
@@ -294,8 +294,7 @@
             c.fillStyle = "#FFFFFF";
             c.fillRect(endpoint.x*30, endpoint.y*30, 24 ,24);
             
-            c.fillStyle = "#CC66FF";
-            c.fillRect(branchpoint.x*30, branchpoint.y*30, 24, 24);
+            
             
             var startnode = {
                 x:0,
@@ -311,6 +310,9 @@
             c.fillRect(startpoint.x*30, startpoint.y*30, 24, 24);
             c.fillStyle = "#CC0000";
             c.fillRect(endpoint.x*30, endpoint.y*30, 24 ,24);
+            
+            c.fillStyle = "#CC66FF";
+            c.fillRect(branchpoint.x*30, branchpoint.y*30, 24, 24);
             
         }
     }
