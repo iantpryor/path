@@ -322,19 +322,18 @@
                }
            }
             
-            /*for(var i = 0; i< Math.floor(pathWidth/2)+1; i++){
+            for(var i = 0; i< Math.floor(pathWidth/2)+1; i++){
                 for(var j = 0; j< Math.floor(pathHeight/2)+1; j++){
                     var randRoom = Math.floor((Math.random() * 9));
                     if(randRoom < 1){
                         roomDim = createRoom(i,j,pathWidth,pathHeight);
                         c.beginPath();
-                        //c.lineWidth = 3;
                         c.fillStyle = "#FFFFFF";
-                        c.fillRect(i*30 , j*30, roomDim[0]*30 - 6, roomDim[1]*30 - 6);
+                        c.fillRect(i*30 + 6, j*30 + 6, roomDim[0]*30 - 6, roomDim[1]*30 - 6);
                         c.stroke();
                     }
                 }
-            }*/
+            }
             
             //paint the start and end points.
             //c.fillStyle = "#33CC33";
