@@ -263,12 +263,12 @@
                }
                if(movedirX < 0){
                    nodemap[movingpointold.x][movingpointold.y].w = 1;
-               }else{
+               }else if(movedirX > 0){
                    nodemap[movingpointold.x][movingpointold.y].e = 1;
                }
                if(movedirY < 0){
                    nodemap[movingpointold.x][movingpointold.y].n =1;
-               }else{
+               }else if(movedirY >0){
                    nodemap[movingpointold.x][movingpointold.y].s = 1;
                }
                nodemap[movingpoint.x][movingpoint.y].isVisited = 1
