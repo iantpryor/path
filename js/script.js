@@ -257,10 +257,10 @@
                var movedirX = movingpoint.x - movingpointold.x;
                var movedirY = movingpoint.y - movingpointold.y;
                
-               for(var l = 0; l< 30; l++){
+               /*for(var l = 0; l< 30; l++){
                    c.fillStyle = "#FFFFFF";
                    c.fillRect(movingpointold.x*30 + movedirX*l + 8, movingpointold.y*30 + movedirY*l + 8, 6, 6);
-               }
+               }*/
                if(movedirX < 0){
                    nodemap[movingpointold.x][movingpointold.y].w = 1;
                    nodemap[movingpoint.x][movingpoint.y].e = 1;
@@ -276,22 +276,22 @@
                    nodemap[movingpoint.x][movingpoint.y].n = 1;
                }
                nodemap[movingpoint.x][movingpoint.y].isVisited = 1
-               c.fillStyle = "#FFFFFF";
-               c.fillRect(movingpoint.x*30, movingpoint.y*30, 24, 24);
+               
+               //c.fillStyle = "#FFFFFF";
+               //c.fillRect(movingpoint.x*30, movingpoint.y*30, 24, 24);
                
                if( i >= Math.floor(walkArray.length/2) && branch < 1){
                    branchpoint.x = movingpoint.x;
                    branchpoint.y = movingpoint.y;
-                   
                    branch++;
                }
-               
-               
                
                movingpointold.x = movingpoint.x;
                movingpointold.y = movingpoint.y;
            }
            
+           
+           //paint the map data
            for(var i = 0; i< nodemap.length; i++){
                for(var j = 0; j < nodemap[i].length; j++){
                    c.fillStyle = "#000000";
@@ -335,11 +335,11 @@
             
             //paint the start and end points.
             //c.fillStyle = "#33CC33";
-            c.fillStyle = "#FFFFFF";
-            c.fillRect(startpoint.x*30, startpoint.y*30, 24, 24);
+            //c.fillStyle = "#FFFFFF";
+            //c.fillRect(startpoint.x*30, startpoint.y*30, 24, 24);
             //c.fillStyle = "#CC0000";
-            c.fillStyle = "#FFFFFF";
-            c.fillRect(endpoint.x*30, endpoint.y*30, 24 ,24);
+            //c.fillStyle = "#FFFFFF";
+            //c.fillRect(endpoint.x*30, endpoint.y*30, 24 ,24);
             
             
             
@@ -357,7 +357,6 @@
             c.fillRect(startpoint.x*30 + 6, startpoint.y*30 + 6, 18, 18);
             c.fillStyle = "#CC0000";
             c.fillRect(endpoint.x*30 + 6, endpoint.y*30 + 6, 18, 18);
-            
             c.fillStyle = "#CC66FF";
             c.fillRect(branchpoint.x*30 + 6, branchpoint.y*30 + 6, 18, 18);
             
