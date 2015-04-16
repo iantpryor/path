@@ -312,6 +312,8 @@
                     }
                 }
             }
+            
+            removeRooms();
            
            //flood filling to get rid of stray rooms but it doesn't work yet
            var startnode = {
