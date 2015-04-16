@@ -141,13 +141,14 @@
         function createRoom(x, y, pw, ph){
             var randw = Math.floor((Math.random() * (pw/2) + 1) );
             var randh = Math.floor((Math.random() * (ph/2) + 1) );
-            //alert(randw + ", " + randh);
+            
             for(i = 0; i< randw; i++){
                 for(j = 0; j< randh; j++){
                     nodemap[x+i][y+j].isRoom = 1;
                 }
             }
-            //return [randw, randh];
+            
+            return [randw, randh];
         }
     
         function paint(){
@@ -158,7 +159,6 @@
             
             var heightSelect = document.getElementById("height");
             var pathHeight = parseInt(heightSelect.options[heightSelect.selectedIndex].value);
-            //alert(pathWidth + ", " + pathHeight);
             
             //create a start and endpoint based on the grid size
             var startpoint = {
@@ -193,10 +193,8 @@
                }
            }
            
-           
-           var randsteps = 2* Math.floor((pathWidth/2) * (pathHeight/2));
-           
            //create a random path that we will walk
+           var randsteps = 2* Math.floor((pathWidth/2) * (pathHeight/2));
            var walkArray = walk(startpoint, endpoint, randsteps);
            
            //create two moving points representing where we are and where we were
@@ -208,16 +206,17 @@
                x: -1,
                y: -1
            };
+           
            movingpoint.x = startpoint.x;
            movingpoint.y = startpoint.y;
            movingpointold.x = startpoint.x;
            movingpointold.y = startpoint.y;
-           
            var branch = 0;
            var branchpoint = {
                x: -1,
                y: -1
            };
+           
            //follow the path and paint along the way
            nodemap[startpoint.x][startpoint.y].isVisited = 1;
            
@@ -259,16 +258,11 @@
                    if (index > -1) {
                        walkArray.splice(index, 1);
                    }
-                   
-               }
+                }
                
                var movedirX = movingpoint.x - movingpointold.x;
                var movedirY = movingpoint.y - movingpointold.y;
                
-               /*for(var l = 0; l< 30; l++){
-                   c.fillStyle = "#FFFFFF";
-                   c.fillRect(movingpointold.x*30 + movedirX*l + 8, movingpointold.y*30 + movedirY*l + 8, 6, 6);
-               }*/
                if(movedirX < 0){
                    nodemap[movingpointold.x][movingpointold.y].w = 1;
                    nodemap[movingpoint.x][movingpoint.y].e = 1;
@@ -285,9 +279,6 @@
                }
                nodemap[movingpoint.x][movingpoint.y].isVisited = 1
                
-               //c.fillStyle = "#FFFFFF";
-               //c.fillRect(movingpoint.x*30, movingpoint.y*30, 24, 24);
-               
                if( i >= Math.floor(walkArray.length/2) && branch < 1){
                    branchpoint.x = movingpoint.x;
                    branchpoint.y = movingpoint.y;
@@ -302,10 +293,10 @@
                     var randRoom = Math.floor((Math.random() * 9));
                     if(randRoom < 1){
                         roomDim = createRoom(i,j,pathWidth,pathHeight);
-                        //c.beginPath();
-                        //c.fillStyle = "#FFFFFF";
-                        //c.fillRect(i*30 + 6, j*30 + 6, roomDim[0]*30 - 6*2, roomDim[1]*30 - 6*2);
-                        //c.stroke();
+                        c.beginPath();
+                        c.fillStyle = "#FFFFFF";
+                        c.fillRect(i*30 + 6, j*30 + 6, roomDim[0]*30 - 6*2, roomDim[1]*30 - 6*2);
+                        c.stroke();
                     }
                 }
             }
@@ -337,26 +328,15 @@
                        }
                    }
                    if(nodemap[i][j].isRoom == 1){
-                       c.fillStyle = "#FFFFFF";
-                       c.fillRect(i*30, j*30, 30, 30);
+                       //c.fillStyle = "#FFFFFF";
+                       //c.fillRect(i*30, j*30, 30, 30);
                        
                    }
                }
            }
-            
-            
-            
-            //paint the start and end points.
-            //c.fillStyle = "#33CC33";
-            //c.fillStyle = "#FFFFFF";
-            //c.fillRect(startpoint.x*30, startpoint.y*30, 24, 24);
-            //c.fillStyle = "#CC0000";
-            //c.fillStyle = "#FFFFFF";
-            //c.fillRect(endpoint.x*30, endpoint.y*30, 24 ,24);
-            
-            
-            
-            var startnode = {
+           
+           //flood filling to get rid of stray rooms but it doesn't work yet
+           var startnode = {
                 x:0,
                 y:0
             };
@@ -365,14 +345,13 @@
             //floodfill(startnode,"#FFFFFF","#0099FF", pathWidth, pathHeight);
             var imgdata = c.getImageData(0,0,1,1).data;
             
-            //paint the start and end points.
+            //paint the start, branch, and end points.
             c.fillStyle = "#33CC33";
             c.fillRect(startpoint.x*30 + 6, startpoint.y*30 + 6, 18, 18);
             c.fillStyle = "#CC0000";
             c.fillRect(endpoint.x*30 + 6, endpoint.y*30 + 6, 18, 18);
             c.fillStyle = "#CC66FF";
             c.fillRect(branchpoint.x*30 + 6, branchpoint.y*30 + 6, 18, 18);
-            
         }
     }
 })(window, document, undefined);
