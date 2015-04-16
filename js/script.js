@@ -175,7 +175,7 @@
                 nodemap.push([]);
                 for(var j = 0; j< pathHeight; j++){
                     var node = {
-                        isvisited: 0,
+                        isVisited: 0,
                         n:0,
                         s:0,
                         e:0,
@@ -290,7 +290,7 @@
            
            for(var i = 0; i< nodemap.length; i++){
                for(var j = 0; j < nodemap[i].length; j++){
-                   if(nodemapd[i][j].isvisited == 0){
+                   if(nodemapd[i][j].isVisited == 0){
                        c.fillStyle = "#000000";
                        c.fillRect(i*30, j*30, 30, 30);
                    }
