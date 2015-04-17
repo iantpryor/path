@@ -251,28 +251,28 @@
            for(var i = 0; i< nodemap.length; i++){
                for(var j = 0; j< nodemap[i].length; j++){
                    var neighboorcount = 0;
-                   if(typeof nodemap[i][j - 1] != "undefined"){
+                   if(typeof nodemap[i][j - 1] !== "undefined"){
                        if(nodemap[i][j-1].isVisited == 1){
                            neighboorcount++;
                        }
                    } else{
                        neighboorcount++;
                    }
-                   if(typeof nodemap[i][j + 1] != "undefined"){
+                   if(typeof nodemap[i][j + 1] !== "undefined"){
                        if(nodemap[i][j+1].isVisited == 1){
                            neighboorcount++;
                        }
                    }else{
                        neighboorcount++;
                    }
-                   if(typeof nodemap[i - 1][j] != "undefined"){
+                   if(typeof nodemap[i - 1][j] !== "undefined"){
                        if(nodemap[i-1][j].isVisited == 1){
                            neighboorcount++;
                        }
                    }else{
                        neighboorcount++;
                    }
-                   if(typeof nodemap[i + 1][j] != "undefined"){
+                   if(typeof nodemap[i + 1][j] !== "undefined"){
                        if(nodemap[i +1][j].isVisited == 1){
                            neighboorcount++;
                        }
