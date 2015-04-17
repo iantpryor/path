@@ -251,16 +251,16 @@
            for(var i = 0; i< nodemap.length; i++){
                for(var j = 0; j< nodemap[i].length; j++){
                    var doorcount = 0;
-                   if(nodemap[i][j].n = 1){
+                   if(nodemap[i][j].n == 1){
                        doorcount++;
                    }
-                   if(nodemap[i][j].s = 1){
+                   if(nodemap[i][j].s == 1){
                        doorcount++;
                    }
-                   if(nodemap[i][j].e = 1){
+                   if(nodemap[i][j].e == 1){
                        doorcount++;
                    }
-                   if(nodemap[i][j].w = 1){
+                   if(nodemap[i][j].w == 1){
                        doorcount++;
                    }
                
