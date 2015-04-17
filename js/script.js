@@ -35,11 +35,8 @@
                 }
                 
                 if(remove ==1 ){
-                    removelist.push(i);
+                    roomlist[i].removed = 1;
                 }
-            }
-            for(var i= 0; i< removelist.length; i++){
-                roomlist.splice(removelist[i], 1);
             }
         }
         
@@ -117,6 +114,7 @@
               y:y,
               width: randw,
               height: randh,
+              removed: 0
             };
             roomlist.push(room);
             return [randw, randh];
@@ -321,10 +319,12 @@
            
            //paint the rooms so they look nice
            for(var i = 0; i< roomlist.length; i++){
-                c.beginPath();
-                c.fillStyle = "#FFFFFF";
-                c.fillRect(roomlist[i].x*30 + 6, roomlist[i].y*30 + 6, roomlist[i].width*30 - 6*2, roomlist[i].height*30 - 6*2);
-                c.stroke();
+               if(roomlist[i].removed == 0){
+                   c.beginPath();
+                   c.fillStyle = "#FFFFFF";
+                   c.fillRect(roomlist[i].x*30 + 6, roomlist[i].y*30 + 6, roomlist[i].width*30 - 6*2, roomlist[i].height*30 - 6*2);
+                   c.stroke();
+               }
             }
             
             
