@@ -264,7 +264,7 @@
                        doorcount++;
                    }
                
-                   if(doorcount <=2){
+                   if(doorcount <=2 && doorcount > 0){
                        branchpoints.push(nodemap[i][j]);
                    }
                }
