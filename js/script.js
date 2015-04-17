@@ -26,7 +26,7 @@
                 var tempHeight = roomlist[i].height;
                 var tempWidth = roomlist[i].width;
                 for(var j = 0; j< tempWidth; j++){
-                    for(var k = 0; k<tempHeight; k++){
+                    for(var k = 0; k< tempHeight; k++){
                         if(nodemap[roomlist[i].x + j][roomlist[i].y + k].isVisited == 1){
                             remove = 0;
                             break;
