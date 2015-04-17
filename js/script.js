@@ -20,12 +20,14 @@
             var indecies = [];
             for(var i = 0; i< roomlist.length; i++){
                 var remove = 1;
+                var tempHeight = roomlist[i].height;
+                var tempWidth = roomlist[i].width;
                 for(var j = 0; j< roomlist[i].width; j++){
                     if(nodemap[roomlist[i].x + j][roomlist[i].y].isVisited == 1){
                         remove = 0;
                         break;
                     }
-                    if(nodemap[roomlist[i].x + j][roomlist[i].y + roomlist[i].height].isVisited == 1){
+                    if(nodemap[roomlist[i].x + j][roomlist[i].y + tempHeight].isVisited == 1){
                         remove = 0;
                         break;
                     }
@@ -35,7 +37,7 @@
                         remove = 0;
                         break;
                     }
-                    if(nodemap[roomlist[i].x + roomlist[i].width][roomlist[i].y + j].isVisited == 1){
+                    if(nodemap[roomlist[i].x + tempWidth][roomlist[i].y + j].isVisited == 1){
                         remove = 0;
                         break;
                     }
