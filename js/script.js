@@ -14,10 +14,11 @@
         };
         var nodemap = [];
         var roomlist = [];
+        var removelist = [];
         document.getElementById("paintbtn").onclick = paint;
         
         function removeRooms(){
-            var indecies = [];
+            var removelist = [];
             for(var i = 0; i< roomlist.length; i++){
                 var remove = 1;
                 var tempHeight = roomlist[i].height;
@@ -43,11 +44,11 @@
                     }
                 }
                 if(remove ==1 ){
-                    indecies.push(i);
+                    removelist.push(i);
                 }
             }
-            for(var i= 0; i< indecies.length; i++){
-                roomlist.splice(indecies[i], 1);
+            for(var i= 0; i< removelist.length; i++){
+                roomlist.splice(removelist[i], 1);
             }
         }
         
