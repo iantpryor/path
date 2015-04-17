@@ -255,21 +255,29 @@
                        if(nodemap[i][j-1].isVisited == 1){
                            neighboorcount++
                        }
+                   } else{
+                       neighboorcount++
                    }
                    if(typeof nodemap[i][j + 1] != "undefined"){
                        if(nodemap[i][j-1].isVisited == 1){
                            neighboorcount++
                        }
+                   }else{
+                       neighboorcount++
                    }
                    if(typeof nodemap[i - 1][j] != "undefined"){
                        if(nodemap[i][j-1].isVisited == 1){
                            neighboorcount++
                        }
+                   }else{
+                       neighboorcount++
                    }
                    if(typeof nodemap[i + 1][] != "undefined"){
                        if(nodemap[i][j-1].isVisited == 1){
                            neighboorcount++
                        }
+                   }else{
+                       neighboorcount++
                    }
                
                    if(neighboorcount <=2 && neighboorcount > 0){
