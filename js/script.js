@@ -250,21 +250,29 @@
            var branchpoints = [];
            for(var i = 0; i< nodemap.length; i++){
                for(var j = 0; j< nodemap[i].length; j++){
-                   var doorcount = 0;
-                   if(nodemap[i][j].n == 1){
-                       doorcount++;
+                   var neighboorcount = 0;
+                   if(typeof nodemap[i][j - 1] != "undefined"){
+                       if(nodemap[i][j-1].isVisited == 1){
+                           neighboorcount++
+                       }
                    }
-                   if(nodemap[i][j].s == 1){
-                       doorcount++;
+                   if(typeof nodemap[i][j + 1] != "undefined"){
+                       if(nodemap[i][j-1].isVisited == 1){
+                           neighboorcount++
+                       }
                    }
-                   if(nodemap[i][j].e == 1){
-                       doorcount++;
+                   if(typeof nodemap[i - 1][j] != "undefined"){
+                       if(nodemap[i][j-1].isVisited == 1){
+                           neighboorcount++
+                       }
                    }
-                   if(nodemap[i][j].w == 1){
-                       doorcount++;
+                   if(typeof nodemap[i + 1][] != "undefined"){
+                       if(nodemap[i][j-1].isVisited == 1){
+                           neighboorcount++
+                       }
                    }
                
-                   if(doorcount <=2 && doorcount > 0){
+                   if(neighboorcount <=2 && neighboorcount > 0){
                        branchpoints.push(nodemap[i][j]);
                    }
                }
