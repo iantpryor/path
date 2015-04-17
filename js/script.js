@@ -310,12 +310,12 @@
            }
            
            //paint the original rooms
-           for(var i = 0; i< origroomlist.length; i++){
+           /*for(var i = 0; i< origroomlist.length; i++){
                 c.beginPath();
                 c.fillStyle = "#33CCFF";
                 c.fillRect(origroomlist[i].x*30 + 6, origroomlist[i].y*30 + 6, origroomlist[i].width*30 - 6*2, origroomlist[i].height*30 - 6*2);
                 c.stroke();
-            }
+            }*/
            
            //paint the rooms so they look nice
            for(var i = 0; i< roomlist.length; i++){
