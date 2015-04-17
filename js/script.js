@@ -267,6 +267,7 @@
                    if(doorcount <=2){
                        branchpoints.push(nodemap[i][j]);
                    }
+               }
            }
            
            
