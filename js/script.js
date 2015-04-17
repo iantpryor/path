@@ -283,15 +283,9 @@
                 }
             }
             
+            //get rid of rooms that aren't attached
             removeRooms();
             
-            for(var i = 0; i< roomList.length; i++){
-                c.beginPath();
-                c.fillStyle = "#FFFFFF";
-                c.fillRect(roomList[i].x*30 + 6, roomList[i].y*30 + 6, roomList[i].width*30 - 6*2, roomList[i].height*30 - 6*2);
-                c.stroke();
-            }
-
            //paint the map data
            for(var i = 0; i< nodemap.length; i++){
                for(var j = 0; j < nodemap[i].length; j++){
@@ -325,17 +319,13 @@
                }
            }
            
-           
-           
-           //flood filling to get rid of stray rooms but it doesn't work yet
-           var startnode = {
-                x:0,
-                y:0
-            };
-            startnode.x = startpoint.x*30;
-            startnode.y = startpoint.y*30;
-            //floodfill(startnode,"#FFFFFF","#0099FF", pathWidth, pathHeight);
-            var imgdata = c.getImageData(0,0,1,1).data;
+           //paint the rooms so they look nice
+           for(var i = 0; i< roomlist.length; i++){
+                c.beginPath();
+                c.fillStyle = "#FFFFFF";
+                c.fillRect(roomlist[i].x*30 + 6, roomlist[i].y*30 + 6, roomlist[i].width*30 - 6*2, roomlist[i].height*30 - 6*2);
+                c.stroke();
+            }
             
             //paint the start, branch, and end points.
             c.fillStyle = "#33CC33";
