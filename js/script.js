@@ -22,22 +22,22 @@
                 var remove = 1;
                 var tempHeight = roomlist[i].height;
                 var tempWidth = roomlist[i].width;
-                for(var j = 0; j< roomlist[i].width; j++){
+                for(var j = 0; j< tempWidth; j++){
                     if(nodemap[roomlist[i].x + j][roomlist[i].y].isVisited == 1){
                         remove = 0;
                         break;
                     }
-                    if(nodemap[roomlist[i].x + j][roomlist[i].y + tempHeight].isVisited == 1){
+                    if(nodemap[roomlist[i].x + j][roomlist[i].y + tempHeight -1].isVisited == 1){
                         remove = 0;
                         break;
                     }
                 }
-                for(var j = 0; j< roomlist[i].height; j++){
+                for(var j = 0; j< tempHeight; j++){
                     if(nodemap[roomlist[i].x][roomlist[i].y + j].isVisited == 1){
                         remove = 0;
                         break;
                     }
-                    if(nodemap[roomlist[i].x + tempWidth][roomlist[i].y + j].isVisited == 1){
+                    if(nodemap[roomlist[i].x + tempWidth -1][roomlist[i].y + j].isVisited == 1){
                         remove = 0;
                         break;
                     }
