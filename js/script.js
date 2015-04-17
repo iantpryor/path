@@ -18,7 +18,7 @@
         document.getElementById("paintbtn").onclick = paint;
         
         function removeRooms(){
-            var removelist = [];
+            removelist = [];
             for(var i = 0; i< roomlist.length; i++){
                 var remove = 1;
                 var tempHeight = roomlist[i].height;
