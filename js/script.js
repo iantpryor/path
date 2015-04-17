@@ -178,14 +178,7 @@
            movingpoint.y = startpoint.y;
            movingpointold.x = startpoint.x;
            movingpointold.y = startpoint.y;
-           
-           //create a branch point
-           var branch = 0;
-           var branchpoint = {
-               x: -1,
-               y: -1
-           };
-           
+
            //set the start node as visited in the beginning
            nodemap[startpoint.x][startpoint.y].isVisited = 1;
            
@@ -247,16 +240,36 @@
                
                nodemap[movingpoint.x][movingpoint.y].isVisited = 1
                
-               //add a branch point half way through
-               if( i >= Math.floor(walkArray.length/2) && branch < 1){
-                   branchpoint.x = movingpoint.x;
-                   branchpoint.y = movingpoint.y;
-                   branch++;
-               }
+               
               
                movingpointold.x = movingpoint.x;
                movingpointold.y = movingpoint.y;
            }
+           
+           //create a branch point
+           var branchpoints = [];
+           for(var i = 0; i< nodemap.length; i++){
+               for(var j = 0; j< nodemap.length; j++){
+                   var doorcount = 0;
+                   if(walkednodes[i].n = 1){
+                       doorcount++;
+                   }
+                   if(walkednodes[i].s = 1){
+                       doorcount++;
+                   }
+                   if(walkednodes[i].e = 1){
+                       doorcount++;
+                   }
+                   if(walkednodes[i].w = 1){
+                       doorcount++;
+                   }
+               
+                   if(doorcount <=2){
+                       branchpoints.push(nodemap[i][j]);
+                   }
+           }
+           
+           
            
            
            //create random rooms
@@ -327,6 +340,11 @@
                }
             }
             
+            for(var i = 0; i< branchpoints.length; i++){
+                c.fillStyle = "#CC66FF";
+                c.fillRect(branchpoints[i].x*30 + 6, branchpoints[i].y*30 + 6, 18, 18);
+            }
+            
             
             
             //paint the start, branch, and end points.
@@ -334,8 +352,7 @@
             c.fillRect(startpoint.x*30 + 6, startpoint.y*30 + 6, 18, 18);
             c.fillStyle = "#CC0000";
             c.fillRect(endpoint.x*30 + 6, endpoint.y*30 + 6, 18, 18);
-            c.fillStyle = "#CC66FF";
-            c.fillRect(branchpoint.x*30 + 6, branchpoint.y*30 + 6, 18, 18);
+            
         }
     }
 })(window, document, undefined);
