@@ -13,11 +13,13 @@
             r: [1,0]
         };
         var nodemap = [];
+        var origroomlist = [];
         var roomlist = [];
         var removelist = [];
         document.getElementById("paintbtn").onclick = paint;
         
         function removeRooms(){
+            origroomlist = roomlist.slice(0);
             removelist = [];
             for(var i = 0; i< roomlist.length; i++){
                 var remove = 1;
