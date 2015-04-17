@@ -267,6 +267,30 @@
                movingpointold.x = movingpoint.x;
                movingpointold.y = movingpoint.y;
            }
+           
+           
+           //paint the rooms seperate so they look nice
+           for(var i = 0; i< Math.floor(pathWidth/2)+1; i++){
+                for(var j = 0; j< Math.floor(pathHeight/2)+1; j++){
+                    var randRoom = Math.floor((Math.random() * 9));
+                    if(randRoom < 1){
+                        roomDim = createRoom(i,j,pathWidth,pathHeight);
+                        c.beginPath();
+                        c.fillStyle = "#FFFFFF";
+                        c.fillRect(i*30 + 6, j*30 + 6, roomDim[0]*30 - 6*2, roomDim[1]*30 - 6*2);
+                        c.stroke();
+                    }
+                }
+            }
+            
+            removeRooms();
+            
+            for(var i = 0; i< roomList.length; i++){
+                c.beginPath();
+                c.fillStyle = "#FFFFFF";
+                c.fillRect(roomList[i].x*30 + 6, roomList[i].y*30 + 6, roomList[i].width*30 - 6*2, roomList[i].height*30 - 6*2);
+                c.stroke();
+            }
 
            //paint the map data
            for(var i = 0; i< nodemap.length; i++){
@@ -301,21 +325,7 @@
                }
            }
            
-           //paint the rooms seperate so they look nice
-           for(var i = 0; i< Math.floor(pathWidth/2)+1; i++){
-                for(var j = 0; j< Math.floor(pathHeight/2)+1; j++){
-                    var randRoom = Math.floor((Math.random() * 9));
-                    if(randRoom < 1){
-                        roomDim = createRoom(i,j,pathWidth,pathHeight);
-                        c.beginPath();
-                        c.fillStyle = "#FFFFFF";
-                        c.fillRect(i*30 + 6, j*30 + 6, roomDim[0]*30 - 6*2, roomDim[1]*30 - 6*2);
-                        c.stroke();
-                    }
-                }
-            }
-            
-            removeRooms();
+           
            
            //flood filling to get rid of stray rooms but it doesn't work yet
            var startnode = {
