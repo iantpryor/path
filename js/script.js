@@ -113,11 +113,11 @@
             
             var randw = maxW + 1;
             while(randw > maxW){
-                randw = Math.ceil((Math.random() * (pw/5) + 1) );
+                randw = Math.floor((Math.random() * (pw/5) + 1) );
             }
             var randh = maxH + 1;
             while(randh > maxH){
-                randh = Math.ceil((Math.random() * (ph/5) + 1) );
+                randh = Math.floor((Math.random() * (ph/5) + 1) );
             }
             //randw = randw - Math.floor(pw/4);
             //randh = randh - Math.floor(ph/4);
