@@ -314,12 +314,18 @@
                    }catch(e){
                        neighboorcount++;
                    }
-               
-                   if(neighboorcount <=2 && neighboorcount > 0 && nodemap[i][j].isVisited == 1){
+                   
+                   var randBranch = Math.floor((Math.random * 9)
+                   if(neighboorcount <=2 && neighboorcount > 0 && nodemap[i][j].isVisited == 1 && randBranch > 1){
                        branchpoints.push(nodemap[i][j]);
                    }
                }
            }
+           
+           //brach walk
+           //for each branch point
+           //do a random walk away
+           //avoid already visited locations
             
            //paint the map data
            for(var i = 0; i< nodemap.length; i++){
