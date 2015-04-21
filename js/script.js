@@ -111,8 +111,8 @@
             var randw = Math.floor((Math.random() * (pw/2) + 1) );
             var randh = Math.floor((Math.random() * (ph/2) + 1) );
             
-            randw = randw - Math.floor(pw/4);
-            randh = randh - Math.floor(ph/4);
+            //randw = randw - Math.floor(pw/4);
+            //randh = randh - Math.floor(ph/4);
             
             for(i = 0; i< randw; i++){
                 for(j = 0; j< randh; j++){
