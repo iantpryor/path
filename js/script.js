@@ -108,11 +108,19 @@
         }
         
         function createRoom(x, y, pw, ph){
-            var randw = Math.floor((Math.random() * (pw/2) + 1) );
-            var randh = Math.floor((Math.random() * (ph/2) + 1) );
+            maxW = pw - x;
+            maxH = ph - y;
             
-            randw = randw - Math.floor(pw/4);
-            randh = randh - Math.floor(ph/4);
+            var randw;
+            while(randw > maxW){
+                randw = Math.floor((Math.random() * (pw/2) + 1) );
+            }
+            var randh;
+            while(randh > maxH){
+                randh = Math.floor((Math.random() * (ph/2) + 1) );
+            }
+            //randw = randw - Math.floor(pw/4);
+            //randh = randh - Math.floor(ph/4);
             
             for(i = 0; i< randw; i++){
                 for(j = 0; j< randh; j++){
@@ -257,8 +265,8 @@
            }
            
            //create random rooms
-           for(var i = 0; i< Math.floor(pathWidth/2)+1; i++){
-                for(var j = 0; j< Math.floor(pathHeight/2)+1; j++){
+           for(var i = 0; i< pathWidth; i++){
+                for(var j = 0; j< pathHeight; j++){
                     var randRoom = Math.floor((Math.random() * 3));
                     if(randRoom < 1){
                         roomDim = createRoom(i,j,pathWidth,pathHeight);
