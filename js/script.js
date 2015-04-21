@@ -337,6 +337,10 @@
                            c.fillStyle = "#FFFFFF";
                            c.fillRect(i*30, j*30 + 12, 6, 6);
                        }
+                       if(nodemap[i][j].isRoom == 1){
+                           c.fillStyle = "#FFFFFF";
+                           c.fillRect(i*30, j*30, 30, 30);
+                       }
                    }
                    if(nodemap[i][j].isRoom == 1){
                        //c.fillStyle = "#FFFFFF";
@@ -355,14 +359,14 @@
             }*/
            
            //paint the rooms so they look nice
-           for(var i = 0; i< roomlist.length; i++){
+           /*for(var i = 0; i< roomlist.length; i++){
                if(roomlist[i].removed == 0){
                    c.beginPath();
                    c.fillStyle = "#FFFFFF";
                    c.fillRect(roomlist[i].x*30 + 6, roomlist[i].y*30 + 6, roomlist[i].width*30 - 6*2, roomlist[i].height*30 - 6*2);
                    c.stroke();
                }
-            }
+            }*/
             
             for(var i = 0; i< branchpoints.length; i++){
                 c.fillStyle = "#CC66FF";
