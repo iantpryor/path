@@ -251,32 +251,32 @@
            for(var i = 0; i< nodemap.length; i++){
                for(var j = 0; j< nodemap[i].length; j++){
                    var neighboorcount = 0;
-                   if(nodemap[i][j - 1] != undefined){
+                   try{
                        if(nodemap[i][j-1].isVisited == 1){
                            neighboorcount++;
                        }
-                   } else{
+                   } catch(e){
                        neighboorcount++;
                    }
-                   if(nodemap[i][j + 1] != undefined){
+                   try{
                        if(nodemap[i][j+1].isVisited == 1){
                            neighboorcount++;
                        }
-                   }else{
+                   }catch(e){
                        neighboorcount++;
                    }
-                   if(nodemap[i - 1][j] != undefined){
+                   try{
                        if(nodemap[i-1][j].isVisited == 1){
                            neighboorcount++;
                        }
-                   }else{
+                   }catch(e){
                        neighboorcount++;
                    }
-                   if(nodemap[i + 1][j] != undefined){
+                   try{
                        if(nodemap[i +1][j].isVisited == 1){
                            neighboorcount++;
                        }
-                   }else{
+                   }catch(e){
                        neighboorcount++;
                    }
                
