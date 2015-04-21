@@ -253,8 +253,25 @@
                movingpointold.y = movingpoint.y;
            }
            
-           //create a branch point
-           var branchpoints = [];
+           //create random rooms
+           for(var i = 0; i< Math.floor(pathWidth/2)+1; i++){
+                for(var j = 0; j< Math.floor(pathHeight/2)+1; j++){
+                    var randRoom = Math.floor((Math.random() * 9));
+                    if(randRoom < 1){
+                        roomDim = createRoom(i,j,pathWidth,pathHeight);
+                        //c.beginPath();
+                        //c.fillStyle = "#FFFFFF";
+                        //c.fillRect(i*30 + 6, j*30 + 6, roomDim[0]*30 - 6*2, roomDim[1]*30 - 6*2);
+                        //c.stroke();
+                    }
+                }
+            }
+            
+            //get rid of rooms that aren't attached
+            removeRooms();
+            
+            //create a branch point
+            var branchpoints = [];
            for(var i = 0; i< nodemap.length; i++){
                for(var j = 0; j< nodemap[i].length; j++){
                    var neighboorcount = 0;
@@ -292,26 +309,6 @@
                    }
                }
            }
-           
-           
-           
-           
-           //create random rooms
-           for(var i = 0; i< Math.floor(pathWidth/2)+1; i++){
-                for(var j = 0; j< Math.floor(pathHeight/2)+1; j++){
-                    var randRoom = Math.floor((Math.random() * 9));
-                    if(randRoom < 1){
-                        roomDim = createRoom(i,j,pathWidth,pathHeight);
-                        //c.beginPath();
-                        //c.fillStyle = "#FFFFFF";
-                        //c.fillRect(i*30 + 6, j*30 + 6, roomDim[0]*30 - 6*2, roomDim[1]*30 - 6*2);
-                        //c.stroke();
-                    }
-                }
-            }
-            
-            //get rid of rooms that aren't attached
-            removeRooms();
             
            //paint the map data
            for(var i = 0; i< nodemap.length; i++){
