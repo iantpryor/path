@@ -172,7 +172,7 @@
            }
            
            //create a random path that we will walk
-           var randsteps = 2* Math.floor((pathWidth/2) * (pathHeight/2));
+           var randsteps = 2* Math.floor((pathWidth/4) * (pathHeight/4));
            var walkArray = walk(startpoint, endpoint, randsteps);
            
            //create two moving points representing where we are and where we were
