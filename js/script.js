@@ -280,7 +280,7 @@
                        neighboorcount++;
                    }
                
-                   if(neighboorcount <=2 && neighboorcount > 0){
+                   if(neighboorcount <=2 && neighboorcount > 0 && nodemap[i][j].isVisited == 1){
                        branchpoints.push(nodemap[i][j]);
                    }
                }
