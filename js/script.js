@@ -111,11 +111,11 @@
             maxW = pw - x;
             maxH = ph - y;
             
-            var randw;
+            var randw = maxW + 1;
             while(randw > maxW){
                 randw = Math.floor((Math.random() * (pw/2) + 1) );
             }
-            var randh;
+            var randh = maxH + 1;
             while(randh > maxH){
                 randh = Math.floor((Math.random() * (ph/2) + 1) );
             }
