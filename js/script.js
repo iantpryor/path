@@ -416,6 +416,7 @@
                    }
                    c.fillRect(i*30 + 6, j*30 + 6, 18, 18);
                    
+                   c.fillStyle = "#000000";
                    //north door
                    if(nodemap[i][j].n == 1){
                        c.fillStyle = "#FFFFFF";
@@ -425,6 +426,7 @@
                    }
                    c.fillRect(i*30 + 12, j*30, 6, 6);
                    
+                   c.fillStyle = "#000000";
                    //south door
                    if(nodemap[i][j].s == 1){
                        c.fillStyle = "#FFFFFF";
@@ -434,6 +436,7 @@
                    }
                    c.fillRect(i*30 + 12, j*30 + 24, 6, 6);
                    
+                   c.fillStyle = "#000000";
                    //east door
                    if(nodemap[i][j].e == 1){
                        c.fillStyle = "#FFFFFF";
@@ -443,6 +446,7 @@
                    }
                    c.fillRect(i*30 + 24, j*30 + 12, 6, 6);
                    
+                   c.fillStyle = "#000000";
                    //west door
                    if(nodemap[i][j].w == 1){
                        c.fillStyle = "#FFFFFF";
@@ -453,7 +457,7 @@
                    c.fillRect(i*30, j*30 + 12, 6, 6);
                    
                    //rooms
-                   if(nodemap[i][j].isRoom == 1){
+                   if(nodemap[i][j].isRoom == 1 && nodemap[i][j].isVisited > 0){
                        c.fillStyle = "#FFFFFF";
                        c.fillRect(i*30, j*30, 30, 30);
                    }
