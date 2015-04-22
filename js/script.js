@@ -410,51 +410,52 @@
                    c.fillRect(i*30, j*30, 30, 30);
                    if(nodemap[i][j].isVisited == 1){
                        c.fillStyle = "#FFFFFF";
-                       c.fillRect(i*30 + 6, j*30 + 6, 18, 18);
-                       if(nodemap[i][j].n){
-                           c.fillStyle = "#FFFFFF";
-                           c.fillRect(i*30 + 12, j*30, 6, 6);
-                       }
-                       if(nodemap[i][j].s){
-                           c.fillStyle = "#FFFFFF";
-                           c.fillRect(i*30 + 12, j*30 + 24, 6, 6);
-                       }
-                       if(nodemap[i][j].e){
-                           c.fillStyle = "#FFFFFF";
-                           c.fillRect(i*30 + 24, j*30 + 12, 6, 6);
-                       }
-                       if(nodemap[i][j].w){
-                           c.fillStyle = "#FFFFFF";
-                           c.fillRect(i*30, j*30 + 12, 6, 6);
-                       }
-                       if(nodemap[i][j].isRoom == 1){
-                           c.fillStyle = "#FFFFFF";
-                           c.fillRect(i*30, j*30, 30, 30);
-                       }
                    }
                    else if(nodemap[i][j].isVisited >= 2){
                        c.fillStyle = "#0099CC";
-                       c.fillRect(i*30 + 6, j*30 + 6, 18, 18);
-                       if(nodemap[i][j].n >= 2){
-                           c.fillStyle = "#0099CC";
-                           c.fillRect(i*30 + 12, j*30, 6, 6);
-                       }
-                       if(nodemap[i][j].s >= 2){
-                           c.fillStyle = "#0099CC";
-                           c.fillRect(i*30 + 12, j*30 + 24, 6, 6);
-                       }
-                       if(nodemap[i][j].e >= 2){
-                           c.fillStyle = "#0099CC";
-                           c.fillRect(i*30 + 24, j*30 + 12, 6, 6);
-                       }
-                       if(nodemap[i][j].w >= 2){
-                           c.fillStyle = "#0099CC";
-                           c.fillRect(i*30, j*30 + 12, 6, 6);
-                       }
-                       /*if(nodemap[i][j].isRoom == 1){
-                           c.fillStyle = "#FFFFFF";
-                           c.fillRect(i*30, j*30, 30, 30);
-                       }*/
+                   }
+                   c.fillRect(i*30 + 6, j*30 + 6, 18, 18);
+                   
+                   //north door
+                   if(nodemap[i][j].n == 1){
+                       c.fillStyle = "#FFFFFF";
+                   }
+                   else if(nodemap[i][j].n >=2){
+                       c.fillStyle = "#0099CC";
+                   }
+                   c.fillRect(i*30 + 12, j*30, 6, 6);
+                   
+                   //south door
+                   if(nodemap[i][j].s){
+                       c.fillStyle = "#FFFFFF";
+                   }
+                   else if(nodemap[i][j].s >=2){
+                       c.fillStyle = "#0099CC";
+                   }
+                   c.fillRect(i*30 + 12, j*30 + 24, 6, 6);
+                   
+                   //east door
+                   if(nodemap[i][j].e == 1){
+                       c.fillStyle = "#FFFFFF";
+                   }
+                   else if(nodemap[i][j].e >= 2){
+                       c.fillStyle = "#0099CC";
+                   }
+                   c.fillRect(i*30 + 24, j*30 + 12, 6, 6);
+                   
+                   //west door
+                   if(nodemap[i][j].w == 1){
+                       c.fillStyle = "#FFFFFF";
+                   }
+                   else if(nodemap[i][j].w >= 2){
+                       c.fillStyle = "#0099CC";
+                   }
+                   c.fillRect(i*30, j*30 + 12, 6, 6);
+                   
+                   //rooms
+                   if(nodemap[i][j].isRoom == 1){
+                       c.fillStyle = "#FFFFFF";
+                       c.fillRect(i*30, j*30, 30, 30);
                    }
                }
            }
