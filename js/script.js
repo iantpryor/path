@@ -426,7 +426,7 @@
                    c.fillRect(i*30 + 12, j*30, 6, 6);
                    
                    //south door
-                   if(nodemap[i][j].s){
+                   if(nodemap[i][j].s == 1){
                        c.fillStyle = "#FFFFFF";
                    }
                    else if(nodemap[i][j].s >=2){
