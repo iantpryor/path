@@ -343,13 +343,15 @@
                for(var j = 0; j< branchLength; j++){
                    prevbmovingpoint.x = bmovingpoint.x;
                    prevbmovingpoint.y = bmovingpoint.y;
-                   var randDir = Math.floor(Math.random() * 3)
+                   var randDir = Math.floor(Math.random() * 4);
+                   var backTrack = 0;
                    
                    if(randDir == 0){
                        //up
                        bmovingpoint.y = bmovingpoint.y - 1;
                        if(bmovingpoint.y < 0 || (nodemap[bmovingpoint.x][bmovingpoint.y].isVisited != i+2 && nodemap[bmovingpoint.x][bmovingpoint.y].isVisited != 0)){
                            bmovingpoint.y = bmovingpoint.y + 1;
+                           backTrack = 1;
                        }
                    }
                    else if(randDir == 1){
@@ -357,6 +359,7 @@
                        bmovingpoint.y = bmovingpoint.y + 1;
                        if(bmovingpoint.y >= pathHeight || (nodemap[bmovingpoint.x][bmovingpoint.y].isVisited != i+2 && nodemap[bmovingpoint.x][bmovingpoint.y].isVisited != 0)){
                            bmovingpoint.y = bmovingpoint.y - 1;
+                           backTrack = 1;
                        }
                    }
                    else if(randDir == 2){
@@ -364,6 +367,7 @@
                        bmovingpoint.x = bmovingpoint.x - 1;
                        if(bmovingpoint.x < 0 || (nodemap[bmovingpoint.x][bmovingpoint.y].isVisited != i+2 && nodemap[bmovingpoint.x][bmovingpoint.y].isVisited != 0)){
                            bmovingpoint.x = bmovingpoint.x + 1;
+                           backTrack = 1;
                        }
                    }
                    else if(randDir == 3){
@@ -371,32 +375,32 @@
                        bmovingpoint.x = bmovingpoint.x + 1;
                        if(bmovingpoint.x >= pathWidth || (nodemap[bmovingpoint.x][bmovingpoint.y].isVisited != i+2 && nodemap[bmovingpoint.x][bmovingpoint.y].isVisited != 0)){
                            bmovingpoint.x = bmovingpoint.x - 1;
+                           backTrack = 1;
                        }
                    }
                    
-                   nodemap[bmovingpoint.x][bmovingpoint.y].isVisited = i+2;
-                  
-                   if(randDir == 0){
-                       nodemap[prevbmovingpoint.x][prevbmovingpoint.y].n = i+2;
-                       nodemap[bmovingpoint.x][bmovingpoint.y].s = i+2;
+                   if( backTrack == 0){
+                       nodemap[bmovingpoint.x][bmovingpoint.y].isVisited = i+2;
+                       nodemap[prevbmovingpoint.x][prevbmovingpoint.y].isVisited = i+2;
+                      
+                       if(randDir == 0){
+                           nodemap[prevbmovingpoint.x][prevbmovingpoint.y].n = i+2;
+                           nodemap[bmovingpoint.x][bmovingpoint.y].s = i+2;
+                       }
+                       if(randDir == 1){
+                           nodemap[prevbmovingpoint.x][prevbmovingpoint.y].s = i+2;
+                           nodemap[bmovingpoint.x][bmovingpoint.y].n = i+2;
+                       }
+                       if(randDir == 2){
+                           nodemap[prevbmovingpoint.x][prevbmovingpoint.y].w = i+2;
+                           nodemap[bmovingpoint.x][bmovingpoint.y].e = i+2;
+                       }
+                       if(randDir == 3){
+                           nodemap[prevbmovingpoint.x][prevbmovingpoint.y].e = i+2;
+                           nodemap[bmovingpoint.x][bmovingpoint.y].w = i+2;
+                       }
                    }
-                   if(randDir == 1){
-                       nodemap[prevbmovingpoint.x][prevbmovingpoint.y].s = i+2;
-                       nodemap[bmovingpoint.x][bmovingpoint.y].n = i+2;
-                   }
-                   if(randDir == 2){
-                       nodemap[prevbmovingpoint.x][prevbmovingpoint.y].w = i+2;
-                       nodemap[bmovingpoint.x][bmovingpoint.y].e = i+2;
-                   }
-                   if(randDir == 3){
-                       nodemap[prevbmovingpoint.x][prevbmovingpoint.y].e = i+2;
-                       nodemap[bmovingpoint.x][bmovingpoint.y].w = i+2;
-                   }
-                   
-                   
                }
-               
-               
            }
             
            //paint the map data
