@@ -348,28 +348,28 @@
                    if(randDir == 0){
                        //up
                        bmovingpoint.y = bmovingpoint.y - 1;
-                       if(bmovingpoint.y < 0 || nodemap[bmovingpoint.x][bmovingpoint.y].isVisited != i+2 || nodemap[bmovingpoint.x][bmovingpoint.y].isVisited != 0){
+                       if(bmovingpoint.y < 0 || (nodemap[bmovingpoint.x][bmovingpoint.y].isVisited != i+2 && nodemap[bmovingpoint.x][bmovingpoint.y].isVisited != 0)){
                            bmovingpoint.y = bmovingpoint.y + 1;
                        }
                    }
                    else if(randDir == 1){
                        //down
                        bmovingpoint.y = bmovingpoint.y + 1;
-                       if(bmovingpoint.y >= pathHeight || nodemap[bmovingpoint.x][bmovingpoint.y].isVisited != i+2 || nodemap[bmovingpoint.x][bmovingpoint.y].isVisited != 0){
+                       if(bmovingpoint.y >= pathHeight || (nodemap[bmovingpoint.x][bmovingpoint.y].isVisited != i+2 && nodemap[bmovingpoint.x][bmovingpoint.y].isVisited != 0)){
                            bmovingpoint.y = bmovingpoint.y - 1;
                        }
                    }
                    else if(randDir == 2){
                        //left
                        bmovingpoint.x = bmovingpoint.x - 1;
-                       if(bmovingpoint.x < 0 || nodemap[bmovingpoint.x][bmovingpoint.y].isVisited != i+2 || nodemap[bmovingpoint.x][bmovingpoint.y].isVisited != 0){
+                       if(bmovingpoint.x < 0 || (nodemap[bmovingpoint.x][bmovingpoint.y].isVisited != i+2 && nodemap[bmovingpoint.x][bmovingpoint.y].isVisited != 0)){
                            bmovingpoint.x = bmovingpoint.x + 1;
                        }
                    }
                    else if(randDir == 3){
                        //right
                        bmovingpoint.x = bmovingpoint.x + 1;
-                       if(bmovingpoint.x >= pathWidth || nodemap[bmovingpoint.x][bmovingpoint.y].isVisited != i+2 || nodemap[bmovingpoint.x][bmovingpoint.y].isVisited != 0){
+                       if(bmovingpoint.x >= pathWidth || (nodemap[bmovingpoint.x][bmovingpoint.y].isVisited != i+2 && nodemap[bmovingpoint.x][bmovingpoint.y].isVisited != 0)){
                            bmovingpoint.x = bmovingpoint.x - 1;
                        }
                    }
