@@ -435,19 +435,19 @@
                    else if(nodemap[i][j].isVisited >= 2){
                        c.fillStyle = "#0099CC";
                        c.fillRect(i*30 + 6, j*30 + 6, 18, 18);
-                       if(nodemap[i][j].n){
+                       if(nodemap[i][j].n >= 2){
                            c.fillStyle = "#0099CC";
                            c.fillRect(i*30 + 12, j*30, 6, 6);
                        }
-                       if(nodemap[i][j].s){
+                       if(nodemap[i][j].s >= 2){
                            c.fillStyle = "#0099CC";
                            c.fillRect(i*30 + 12, j*30 + 24, 6, 6);
                        }
-                       if(nodemap[i][j].e){
+                       if(nodemap[i][j].e >= 2){
                            c.fillStyle = "#0099CC";
                            c.fillRect(i*30 + 24, j*30 + 12, 6, 6);
                        }
-                       if(nodemap[i][j].w){
+                       if(nodemap[i][j].w >= 2){
                            c.fillStyle = "#0099CC";
                            c.fillRect(i*30, j*30 + 12, 6, 6);
                        }
