@@ -316,7 +316,7 @@
                    }
                    
                    var randBranch = Math.floor(Math.random * 9);
-                   if(neighboorcount <=2 && neighboorcount > 0 && nodemap[i][j].isVisited == 1 && randBranch > 1){
+                   if(neighboorcount <=2 && neighboorcount > 0 && nodemap[i][j].isVisited == 1 && randBranch < 1){
                        branchpoints.push(nodemap[i][j]);
                    }
                }
