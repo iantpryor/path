@@ -326,6 +326,78 @@
            //for each branch point
            //do a random walk away
            //avoid already visited locations
+           for(var i = 0; i< branchpoints.length; i++){
+               var branchLength = 12;
+               var bmovingpoint = {
+                   x: 0,
+                   y: 0
+               };
+               var prevbmovingpoint = {
+                   x:0,
+                   y:0
+               };
+               bmovingpoint.x = branchpoints[i].x;
+               bmovingpoint.y = branchpoints[i].y;
+               prevbmovingpoint.x = branchpoints[i].x;
+               prevbmovingpoint.y = branchpoints[i].y;
+               for(var j = 0; j< branchLength; j++){
+                   prevbmovingpoint.x = bmovingpoint.x;
+                   prevbmovingpoint.y = bmovingpoint.y;
+                   var randDir = Math.floor(Math.random() * 3)
+                   
+                   if(randDir == 0){
+                       //up
+                       bmovingpoint.y = bmovingpoint.y - 1;
+                       if(bmovingpoint.y < 0 || nodemap[bmovingpoint.x][bmovingpoint.y].isVisited != i+2){
+                           bmovingpoint.y = 0;
+                       }
+                   }
+                   else if(randDir == 1){
+                       //down
+                       bmovingpoint.y = bmovingpoint.y + 1;
+                       if(bmovingpoint.y >= pathHeight || nodemap[bmovingpoint.x][bmovingpoint.y].isVisited != i+2){
+                           bmovingpoint.y = pathHeight - 1;
+                       }
+                   }
+                   else if(randDir == 2){
+                       //left
+                       bmovingpoint.x = bmovingpoint.x - 1;
+                       if(bmovingpoint.x < 0 || nodemap[bmovingpoint.x][bmovingpoint.y].isVisited != i+2){
+                           bmovingpoint.x = 0;
+                       }
+                   }
+                   else if(randDir == 3){
+                       //right
+                       bmovingpoint.x = bmovingpoint.x + 1;
+                       if(bmovingpoint.x >= pathWidth || nodemap[bmovingpoint.x][bmovingpoint.y].isVisited != i+2){
+                           bmovingpoint.x = pathWidth -1;
+                       }
+                   }
+                   
+                   nodemap[bmovingpoint.x][bmovingpoint.y].isVisited = i+2;
+                  
+                   if(randDir == 0){
+                       nodemap[prevbmovingpoint.x][prevbmovingpoint.y].n = i+2;
+                       nodemap[bmovingpoint.x][bmovingpoint.y].s = i+2;
+                   }
+                   if(randDir == 1){
+                       nodemap[prevbmovingpoint.x][prevbmovingpoint.y].s = i+2;
+                       nodemap[bmovingpoint.x][bmovingpoint.y].n = i+2;
+                   }
+                   if(randDir == 2){
+                       nodemap[prevbmovingpoint.x][prevbmovingpoint.y].w = i+2;
+                       nodemap[bmovingpoint.x][bmovingpoint.y].e = i+2;
+                   }
+                   if(randDir == 3){
+                       nodemap[prevbmovingpoint.x][prevbmovingpoint.y].e = i+2;
+                       nodemap[bmovingpoint.x][bmovingpoint.y].w = i+2;
+                   }
+                   
+                   
+               }
+               
+               
+           }
             
            //paint the map data
            for(var i = 0; i< nodemap.length; i++){
@@ -356,10 +428,29 @@
                            c.fillRect(i*30, j*30, 30, 30);
                        }
                    }
-                   if(nodemap[i][j].isRoom == 1){
-                       //c.fillStyle = "#FFFFFF";
-                       //c.fillRect(i*30, j*30, 30, 30);
-                       
+                   else if(nodemap[i][j].isVisited >= 2){
+                       c.fillStyle = "#0099CC";
+                       c.fillRect(i*30 + 6, j*30 + 6, 18, 18);
+                       if(nodemap[i][j].n){
+                           c.fillStyle = "#0099CC";
+                           c.fillRect(i*30 + 12, j*30, 6, 6);
+                       }
+                       if(nodemap[i][j].s){
+                           c.fillStyle = "#0099CC";
+                           c.fillRect(i*30 + 12, j*30 + 24, 6, 6);
+                       }
+                       if(nodemap[i][j].e){
+                           c.fillStyle = "#0099CC";
+                           c.fillRect(i*30 + 24, j*30 + 12, 6, 6);
+                       }
+                       if(nodemap[i][j].w){
+                           c.fillStyle = "#0099CC";
+                           c.fillRect(i*30, j*30 + 12, 6, 6);
+                       }
+                       /*if(nodemap[i][j].isRoom == 1){
+                           c.fillStyle = "#FFFFFF";
+                           c.fillRect(i*30, j*30, 30, 30);
+                       }*/
                    }
                }
            }
