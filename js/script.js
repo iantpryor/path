@@ -459,7 +459,7 @@
                    
                    c.fillStyle = "#000000";
                    //rooms
-                   if(nodemap[i][j].isRoom == 1 && nodemap[i][j].isVisited =1){
+                   if(nodemap[i][j].isRoom == 1 && nodemap[i][j].isVisited ==1){
                        c.fillStyle = "#FFFFFF";
                    }
                    else if(nodemap[i][j].isRoom == 1 && nodemap[i][j].isVisited >=2){
