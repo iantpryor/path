@@ -457,7 +457,6 @@
                    }
                    c.fillRect(i*30, j*30 + 12, 6, 6);
                    
-                   c.fillStyle = "#000000";
                    //rooms
                    if(nodemap[i][j].isRoom == 1 && nodemap[i][j].isVisited ==1){
                        c.fillStyle = "#FFFFFF";
