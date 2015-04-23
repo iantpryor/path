@@ -279,6 +279,7 @@
             }
             
             //get rid of rooms that aren't attached
+            //doesn't get rid of room data, so they could be woken by a branch
             removeRooms();
             
             //create a branch point
@@ -456,31 +457,18 @@
                    }
                    c.fillRect(i*30, j*30 + 12, 6, 6);
                    
+                   c.fillStyle = "#000000";
                    //rooms
-                   if(nodemap[i][j].isRoom == 1 && nodemap[i][j].isVisited > 0){
+                   if(nodemap[i][j].isRoom == 1 && nodemap[i][j].isVisited =1){
                        c.fillStyle = "#FFFFFF";
-                       c.fillRect(i*30, j*30, 30, 30);
                    }
+                   else if(nodemap[i][j].isRoom == 1 && nodemap[i][j].isVisited >=2){
+                       c.fillStyle = "#0099CC";
+                   }
+                   c.fillRect(i*30, j*30, 30, 30);
                }
            }
-           
-           //paint the original rooms
-           /*for(var i = 0; i< origroomlist.length; i++){
-                c.beginPath();
-                c.fillStyle = "#33CCFF";
-                c.fillRect(origroomlist[i].x*30 + 6, origroomlist[i].y*30 + 6, origroomlist[i].width*30 - 6*2, origroomlist[i].height*30 - 6*2);
-                c.stroke();
-            }*/
-           
-           //paint the rooms so they look nice
-           /*for(var i = 0; i< roomlist.length; i++){
-               if(roomlist[i].removed == 0){
-                   c.beginPath();
-                   c.fillStyle = "#FFFFFF";
-                   c.fillRect(roomlist[i].x*30 + 6, roomlist[i].y*30 + 6, roomlist[i].width*30 - 6*2, roomlist[i].height*30 - 6*2);
-                   c.stroke();
-               }
-            }*/
+
             
             for(var i = 0; i< branchpoints.length; i++){
                 c.fillStyle = "#CC66FF";
