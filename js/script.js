@@ -328,7 +328,7 @@
            //do a random walk away
            //avoid already visited locations
            for(var i = 0; i< branchpoints.length; i++){
-               var branchLength = 12;
+               var branchLength = pathWidth + pathHeight;
                var bmovingpoint = {
                    x: 0,
                    y: 0
