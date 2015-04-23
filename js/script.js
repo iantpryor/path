@@ -460,11 +460,13 @@
                    //rooms
                    if(nodemap[i][j].isRoom == 1 && nodemap[i][j].isVisited ==1){
                        c.fillStyle = "#FFFFFF";
+                       c.fillRect(i*30, j*30, 30, 30);
                    }
                    else if(nodemap[i][j].isRoom == 1 && nodemap[i][j].isVisited >=2){
                        c.fillStyle = "#0099CC";
+                       c.fillRect(i*30, j*30, 30, 30);
                    }
-                   c.fillRect(i*30, j*30, 30, 30);
+                   
                }
            }
 
