@@ -6,4 +6,6 @@ path is a path generator in js.  It will generate a random path from the bottom 
 If the grid size is large enough, the path generator will create divergent solo paths as well.  These extra routes will avoid reinteresting with the main path and each other.  They can also contain larger rooms.
 
 ###How to use path
-* 
+* Select the desired grid width
+* Select the desired grid height
+* Click paint
