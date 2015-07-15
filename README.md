@@ -8,4 +8,4 @@ If the grid size is large enough, the path generator will create divergent solo 
 ###How to use path
 * Select the desired grid width
 * Select the desired grid height
-* Click paint
+* Click paint until you get a path you like
