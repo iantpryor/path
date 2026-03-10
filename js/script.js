@@ -108,9 +108,9 @@
         }
         
         function createRoom(x, y, pw, ph){
-            maxW = pw - x;
-            maxH = ph - y;
-            
+            var maxW = pw - x;
+            var maxH = ph - y;
+
             var randw = maxW + 1;
             while(randw > maxW){
                 randw = Math.floor((Math.random() * (pw/5) + 1) );
@@ -119,11 +119,9 @@
             while(randh > maxH){
                 randh = Math.floor((Math.random() * (ph/5) + 1) );
             }
-            //randw = randw - Math.floor(pw/4);
-            //randh = randh - Math.floor(ph/4);
-            
-            for(i = 0; i< randw; i++){
-                for(j = 0; j< randh; j++){
+
+            for(var i = 0; i< randw; i++){
+                for(var j = 0; j< randh; j++){
                     nodemap[x+i][y+j].isRoom = 1;
                 }
             }
@@ -263,13 +261,39 @@
                movingpointold.x = movingpoint.x;
                movingpointold.y = movingpoint.y;
            }
-           
+
+           //if the walk didn't reach the endpoint, walk directly to it now
+           if(nodemap[endpoint.x][endpoint.y].isVisited != 1){
+               while(movingpoint.x != endpoint.x || movingpoint.y != endpoint.y){
+                   movingpointold.x = movingpoint.x;
+                   movingpointold.y = movingpoint.y;
+                   if(movingpoint.x < endpoint.x){
+                       movingpoint.x++;
+                       nodemap[movingpointold.x][movingpointold.y].e = 1;
+                       nodemap[movingpoint.x][movingpoint.y].w = 1;
+                   } else if(movingpoint.x > endpoint.x){
+                       movingpoint.x--;
+                       nodemap[movingpointold.x][movingpointold.y].w = 1;
+                       nodemap[movingpoint.x][movingpoint.y].e = 1;
+                   } else if(movingpoint.y < endpoint.y){
+                       movingpoint.y++;
+                       nodemap[movingpointold.x][movingpointold.y].s = 1;
+                       nodemap[movingpoint.x][movingpoint.y].n = 1;
+                   } else if(movingpoint.y > endpoint.y){
+                       movingpoint.y--;
+                       nodemap[movingpointold.x][movingpointold.y].n = 1;
+                       nodemap[movingpoint.x][movingpoint.y].s = 1;
+                   }
+                   nodemap[movingpoint.x][movingpoint.y].isVisited = 1;
+               }
+           }
+
            //create random rooms
            for(var i = 0; i< pathWidth; i++){
                 for(var j = 0; j< pathHeight; j++){
                     var randRoom = Math.floor((Math.random() * 19));
                     if(randRoom < 1){
-                        roomDim = createRoom(i,j,pathWidth,pathHeight);
+                        var roomDim = createRoom(i,j,pathWidth,pathHeight);
                         //c.beginPath();
                         //c.fillStyle = "#FFFFFF";
                         //c.fillRect(i*30 + 6, j*30 + 6, roomDim[0]*30 - 6*2, roomDim[1]*30 - 6*2);
@@ -287,32 +311,16 @@
            for(var i = 0; i< nodemap.length; i++){
                for(var j = 0; j< nodemap[i].length; j++){
                    var neighboorcount = 0;
-                   try{
-                       if(nodemap[i][j-1].isVisited == 1){
-                           neighboorcount++;
-                       }
-                   } catch(e){
+                   if(j - 1 < 0 || nodemap[i][j-1].isVisited == 1){
                        neighboorcount++;
                    }
-                   try{
-                       if(nodemap[i][j+1].isVisited == 1){
-                           neighboorcount++;
-                       }
-                   }catch(e){
+                   if(j + 1 >= nodemap[i].length || nodemap[i][j+1].isVisited == 1){
                        neighboorcount++;
                    }
-                   try{
-                       if(nodemap[i-1][j].isVisited == 1){
-                           neighboorcount++;
-                       }
-                   }catch(e){
+                   if(i - 1 < 0 || nodemap[i-1][j].isVisited == 1){
                        neighboorcount++;
                    }
-                   try{
-                       if(nodemap[i +1][j].isVisited == 1){
-                           neighboorcount++;
-                       }
-                   }catch(e){
+                   if(i + 1 >= nodemap.length || nodemap[i+1][j].isVisited == 1){
                        neighboorcount++;
                    }
                    
@@ -382,8 +390,10 @@
                    
                    if( backTrack == 0){
                        nodemap[bmovingpoint.x][bmovingpoint.y].isVisited = i+2;
-                       nodemap[prevbmovingpoint.x][prevbmovingpoint.y].isVisited = i+2;
-                      
+                       if(nodemap[prevbmovingpoint.x][prevbmovingpoint.y].isVisited != 1){
+                           nodemap[prevbmovingpoint.x][prevbmovingpoint.y].isVisited = i+2;
+                       }
+
                        if(randDir == 0){
                            nodemap[prevbmovingpoint.x][prevbmovingpoint.y].n = i+2;
                            nodemap[bmovingpoint.x][bmovingpoint.y].s = i+2;
