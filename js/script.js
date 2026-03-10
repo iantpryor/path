@@ -74,19 +74,27 @@
 
                 if (movingpoint.x > pathWidth - 1) {
                     movingpoint.x--;
-                    if (index > -1) { walkArray.splice(index, 1); }
+                    if (index > -1) {
+                        walkArray.splice(index, 1);
+                    }
                 }
                 if (movingpoint.x < 0) {
                     movingpoint.x++;
-                    if (index > -1) { walkArray.splice(index, 1); }
+                    if (index > -1) {
+                        walkArray.splice(index, 1);
+                    }
                 }
                 if (movingpoint.y > pathHeight - 1) {
                     movingpoint.y--;
-                    if (index > -1) { walkArray.splice(index, 1); }
+                    if (index > -1) {
+                        walkArray.splice(index, 1);
+                    }
                 }
                 if (movingpoint.y < 0) {
                     movingpoint.y++;
-                    if (index > -1) { walkArray.splice(index, 1); }
+                    if (index > -1) {
+                        walkArray.splice(index, 1);
+                    }
                 }
 
                 var movedirX = movingpoint.x - movingpointold.x;

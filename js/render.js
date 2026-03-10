@@ -19,9 +19,13 @@ PathGen.render = function(c, nodemap, branchpoints, startpoint, endpoint, tileSi
             c.fillRect(tx, ty, tileSize, tileSize);
 
             // cell body
-            if      (node.isVisited === MAIN)   { c.fillStyle = "#FFFFFF"; }
-            else if (node.isVisited >= BRANCH)  { c.fillStyle = "#0099CC"; }
-            else                                { c.fillStyle = "#000000"; }
+            if (node.isVisited === MAIN) {
+                c.fillStyle = "#FFFFFF";
+            } else if (node.isVisited >= BRANCH) {
+                c.fillStyle = "#0099CC";
+            } else {
+                c.fillStyle = "#000000";
+            }
             c.fillRect(tx + bodyOffset, ty + bodyOffset, bodySize, bodySize);
 
             //north door
@@ -42,9 +46,13 @@ PathGen.render = function(c, nodemap, branchpoints, startpoint, endpoint, tileSi
 
             //rooms
             if (node.isRoom === 1) {
-                if      (node.isVisited === MAIN)  { c.fillStyle = "#FFFFFF"; }
-                else if (node.isVisited >= BRANCH) { c.fillStyle = "#0099CC"; }
-                else                               { c.fillStyle = "#000000"; }
+                if (node.isVisited === MAIN) {
+                    c.fillStyle = "#FFFFFF";
+                } else if (node.isVisited >= BRANCH) {
+                    c.fillStyle = "#0099CC";
+                } else {
+                    c.fillStyle = "#000000";
+                }
                 c.fillRect(tx, ty, tileSize, tileSize);
             }
         }
